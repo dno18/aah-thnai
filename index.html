@@ -12,15 +12,17 @@
       background-image: repeating-radial-gradient(#0a58b1ee 86%, #b49d3f 90%);
       background-size: 50px 50px;
       position: relative; /* لجعل الزر في الزاوية */
+      font-family: "Montserrat", sans-serif; /* تعيين خط */
     }
     /* الشعار */
     .logo-container {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     .logo-container img {
-      max-width: 210px;
+      max-width: 100%;
       height: auto;
+      max-width: 210px; /* أقصى عرض للشعار */
     }
     /* صندوق الإدخال */
     .input-container {
@@ -35,7 +37,7 @@
       max-width: 450px;
       margin: 10px 0;
       text-align: center;
-      font-size: 25px;
+      font-size: 1.5rem; /* زيادة حجم الخط */
       border-radius: 10px;
     }
     /* حاوية القوالب */
@@ -44,14 +46,18 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      margin-top: 33px;
+      margin-top: 20px;
     }
     .template {
       cursor: pointer;
+      flex: 1 1 200px; /* جعل القوالب مرنة مع حد أدنى */
+      max-width: 300px; /* أقصى عرض لكل قالب */
     }
     .template img {
       border-radius: 15px;
       transition: transform 0.2s;
+      width: 100%; /* جعل عرض الصورة مرن */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
     }
     .template img:hover {
       transform: scale(1.05);
@@ -68,12 +74,13 @@
       border-radius: 10px;
       display: block;
       margin: auto;
+      max-width: 90%; /* جعل عرض الصورة مرن */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
     }
     /* زر التحميل */
     .download-button-container {
       margin-top: 20px;
     }
-    /* من Uiverse.io */
     button {
       position: relative;
       display: flex;
@@ -81,12 +88,13 @@
       align-items: center;
       border-radius: 5px;
       background: #183153;
-      font-family: "Montserrat", sans-serif;
-      overflow: hidden;
-      cursor: pointer;
+      color: white;
       border: none;
+      padding: 10px 20px; /* إضافة مساحة داخل الزر */
+      font-size: 1.2rem; /* حجم خط أكبر */
+      cursor: pointer;
     }
-    /* الزر */
+    /* زر واتساب */
     .Btn {
       position: absolute;
       bottom: 20px;
@@ -149,22 +157,22 @@
   <!-- قوالب التهنئة -->
   <div class="templates">
     <div class="template" onclick="selectTemplate('q1', 'https://i.postimg.cc/433KJPdC/q1.jpg', 590, 390)">
-      <img src="https://i.postimg.cc/433KJPdC/q1.jpg" alt="قالب 1" width="590" height="390">
+      <img src="https://i.postimg.cc/433KJPdC/q1.jpg" alt="قالب 1">
     </div>
     <div class="template" onclick="selectTemplate('q2', 'https://i.postimg.cc/Wz9NfLGh/q2.jpg', 590, 390)">
-      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2" width="590" height="390">
+      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2">
     </div>
     <div class="template" onclick="selectTemplate('q3', 'https://i.postimg.cc/0QYv4tKR/q3.jpg', 385, 530)">
-      <img src="https://i.postimg.cc/0QYv4tKR/q3.jpg" alt="قالب 3" width="385" height="530">
+      <img src="https://i.postimg.cc/0QYv4tKR/q3.jpg" alt="قالب 3">
     </div>
     <div class="template" onclick="selectTemplate('q4', 'https://i.postimg.cc/zXyFN4pr/q4.jpg', 385, 530)">
-      <img src="https://i.postimg.cc/zXyFN4pr/q4.jpg" alt="قالب 4" width="385" height="530">
+      <img src="https://i.postimg.cc/zXyFN4pr/q4.jpg" alt="قالب 4">
     </div>
     <div class="template" onclick="selectTemplate('q5', '', 385, 530)">
-      <img src="" alt="قالب 5" width="385" height="530">
+      <img src="" alt="قالب 5">
     </div>
     <div class="template" onclick="selectTemplate('q6', '', 385, 530)">
-      <img src="" alt="قالب 6" width="385" height="530">
+      <img src="" alt="قالب 6">
     </div>
   </div>
 
