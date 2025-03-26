@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مؤسسة عبدالمنعم الراشد الإنسانية - تهنئة عيد الفطر</title>
+  <style>
+    /* الأساسيات */
+    body {
+      width: 100%;
+      height: 100%;
+      background-image: repeating-radial-gradient(#0a58b1ee 86%, #b49d3f 90%);
+      background-size: 50px 50px;
+      position: relative; /* لجعل الزر في الزاوية */
+    }
+    /* الشعار */
+    .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .logo-container img {
+      max-width: 210px;
+      height: auto;
+    }
+    /* صندوق الإدخال */
+    .input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      max-width: 450px;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 25px;
+      border-radius: 10px;
+    }
+    /* حاوية القوالب */
+    .templates {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 33px;
+    }
+    .template {
+      cursor: pointer;
+    }
+    .template img {
+      border-radius: 15px;
+      transition: transform 0.2s;
+    }
+    .template img:hover {
+      transform: scale(1.05);
+    }
+    /* معاينة التهنئة */
+    .preview-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .preview-container img {
+      border-radius: 10px;
+      display: block;
+      margin: auto;
+    }
+    /* زر التحميل */
+    .download-button-container {
+      margin-top: 20px;
+    }
+    /* من Uiverse.io */
+    button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background: #183153;
+      font-family: "Montserrat", sans-serif;
+      overflow: hidden;
+      cursor: pointer;
+      border: none;
+    }
+    /* الزر */
+    .Btn {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #00d757;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    }
+    .sign {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sign svg {
+      width: 25px;
+    }
+    .text {
+      position: absolute;
+      right: 0%;
+      width: 0%;
+      opacity: 0;
+      color: white;
+      font-size: 1.2em;
+      font-weight: 600;
+      transition-duration: 0.3s;
+    }
+    .Btn:hover {
+      width: 150px;
+      border-radius: 40px;
+    }
+    .Btn:hover .text {
+      opacity: 1;
+      width: 70%;
+    }
+    .Btn:active {
+      transform: translate(2px, 2px);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- الشعار -->
+  <div class="logo-container">
+    <img src="https://www.aahf.sa/public/storage/infos/February2021/NHIJ1Lp8i9G4xNqy7XNa.png" alt="شعار الموقع">
+  </div>
+
+  <!-- صندوق الإدخال -->
+  <div class="input-container">
+    <input type="text" id="name" placeholder="أدخل اسمك هنا" oninput="updatePreview()">
+  </div>
+
+  <!-- قوالب التهنئة -->
+  <div class="templates">
+    <div class="template" onclick="selectTemplate('q1', 'https://i.postimg.cc/433KJPdC/q1.jpg', 620, 400)">
+      <img src="https://i.postimg.cc/433KJPdC/q1.jpg" alt="قالب 1" width="620" height="400">
+    </div>
+    <div class="template" onclick="selectTemplate('q2', 'https://i.postimg.cc/Wz9NfLGh/q2.jpg', 620, 400)">
+      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2" width="620" height="400">
+    </div>
+    <div class="template" onclick="selectTemplate('q3', 'https://i.postimg.cc/0QYv4tKR/q3.jpg', 385, 530)">
+      <img src="https://i.postimg.cc/0QYv4tKR/q3.jpg" alt="قالب 3" width="385" height="530">
+    </div>
+    <div class="template" onclick="selectTemplate('q4', 'https://i.postimg.cc/zXyFN4pr/q4.jpg', 385, 530)">
+      <img src="https://i.postimg.cc/zXyFN4pr/q4.jpg" alt="قالب 4" width="385" height="530">
+    </div>
+    <div class="template" onclick="selectTemplate('q5', '', 385, 530)">
+      <img src="" alt="قالب 5" width="385" height="530">
+    </div>
+    <div class="template" onclick="selectTemplate('q6', '', 385, 530)">
+      <img src="" alt="قالب 6" width="385" height="530">
+    </div>
+  </div>
+
+  <!-- معاينة التهنئة وزر التحميل -->
+  <div class="preview-container">
+    <h2>معاينة التهنئة</h2>
+    <img id="previewImage" src="" alt="معاينة القالب مع الاسم" style="display: none;">
+    <div class="download-button-container">
+      <button id="downloadButton" onclick="generateGreeting()">تحميل التهنئة</button>
+    </div>
+  </div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <!-- زر واتساب -->
+  <button class="Btn" onclick="shareOnWhatsApp()">
+    <div class="sign">
+      <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+        ></path>
+      </svg>
+    </div>
+    <div class="text">Whatsapp</div>
+  </button>
+
+  <script>
+    let selectedTemplate = '';
+    let selectedTemplateId = '';
+    let previewWidth = 0;
+    let previewHeight = 0;
+
+    const textPositions = {
+      q1: { x: 335, y: 370, color: 'white' },
+      q2: { x: 335, y: 338, color: 'black' },
+      q3: { x: 196, y: 480, color: 'white' },
+      q4: { x: 189, y: 435, color: 'black' },
+      q5: { x: 180, y: 488, color: 'black' },
+      q6: { x: 180, y: 540, color: 'white' }
+    };
+
+    function selectTemplate(templateId, templateUrl, width, height) {
+      selectedTemplate = templateUrl;
+      selectedTemplateId = templateId;
+      previewWidth = width;
+      previewHeight = height;
+
+      document.getElementById('previewImage').style.width = width + 'px';
+      document.getElementById('previewImage').style.height = height + 'px';
+
+      updatePreview();
+    }
+
+    function calculateFontSize(textLength) {
+      return textLength <= 5 ? 30 : textLength <= 10 ? 28 : 24;
+    }
+
+    function updatePreview() {
+      generateGreeting(false);
+    }
+
+    function generateGreeting(download = true) {
+      const name = document.getElementById('name').value;
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      const previewImage = document.getElementById('previewImage');
+
+      if (selectedTemplate && selectedTemplateId) {
+        canvas.width = previewWidth;
+        canvas.height = previewHeight;
+
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.src = selectedTemplate;
+
+        img.onload = function() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          if (name) {
+            let position = textPositions[selectedTemplateId];
+            ctx.font = `${calculateFontSize(name.length)}px Arial`;
+            ctx.fillStyle = position.color;
+            ctx.textAlign = 'center';
+            ctx.fillText(name, position.x, position.y);
+          }
+
+          previewImage.src = canvas.toDataURL('image/png');
+          previewImage.style.display = 'block';
+
+          if (download) {
+            const link = document.createElement('a');
+            link.download = 'greeting.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+          }
+        };
+      } else {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+      }
+    }
+
+    function shareOnWhatsApp() {
+      generateGreeting(false); // تأكد من تحديث الصورة على الكانفاس
+
+      const canvas = document.getElementById('canvas');
+      canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const message = `أرسل لك تهنئة عيد الفطر! قم بتحميل الصورة من الرابط التالي:`;
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)} ${encodeURIComponent(url)}`;
+        window.open(whatsappUrl, '_blank');
+      }, 'image/png');
+    }
+  </script>
+</body>
+</html>
