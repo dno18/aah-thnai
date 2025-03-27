@@ -11,8 +11,8 @@
       height: 100%;
       background-image: repeating-radial-gradient(#0a58b1ee 88%, #b49d3f 90%);
       background-size: 50px 50px;
-      position: relative; /* لجعل الزر في الزاوية */
-      font-family: "Montserrat", sans-serif; /* تعيين خط */
+      position: relative;
+      font-family: "Montserrat", sans-serif;
     }
     /* الشعار */
     .logo-container {
@@ -22,7 +22,7 @@
     .logo-container img {
       max-width: 100%;
       height: auto;
-      max-width: 210px; /* أقصى عرض للشعار */
+      max-width: 210px;
     }
     /* صندوق الإدخال */
     .input-container {
@@ -37,7 +37,7 @@
       max-width: 450px;
       margin: 60px 0;
       text-align: center;
-      font-size: 1.6rem; /* زيادة حجم الخط */
+      font-size: 1.6rem;
       border-radius: 10px;
     }
     /* حاوية القوالب */
@@ -50,14 +50,14 @@
     }
     .template {
       cursor: pointer;
-      flex: 1 1 300px; /* جعل القوالب مرنة مع حد أدنى */
-      max-width: 300px; /* أقصى عرض لكل قالب */
+      flex: 1 1 300px;
+      max-width: 300px;
     }
     .template img {
       border-radius: 15px;
       transition: transform 0.2s;
-      width: 100%; /* جعل عرض الصورة مرن */
-      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+      width: 100%;
+      height: auto;
     }
     .template img:hover {
       transform: scale(1.05);
@@ -74,9 +74,9 @@
       border-radius: 10px;
       display: block;
       margin: auto;
-      width: 100%; /* جعل عرض الصورة مرن */
-      max-width: 590px; /* تعيين أقصى عرض للصورة في المعاينة */
-      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+      width: 100%;
+      max-width: 590px;
+      height: auto;
     }
     /* زر التحميل */
     .download-button-container {
@@ -95,14 +95,20 @@
       background: #183153;
       color: white;
       border: none;
-      padding: 10px 20px; /* إضافة مساحة داخل الزر */
-      font-size: 1.2rem; /* حجم خط أكبر */
+      padding: 10px 20px;
+      font-size: 1.2rem;
       cursor: pointer;
     }
     button.secondary {
       background: #b49d3f;
     }
-    
+    .instructions {
+      margin-top: 10px;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -134,7 +140,6 @@
     <div class="template" onclick="selectTemplate('q5', 'https://i.postimg.cc/PxKBXFt7/q7.jpg', 300, 500)">
       <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
     </div>
-    
   </div>
 
   <!-- معاينة التهنئة وزر التحميل -->
@@ -144,6 +149,9 @@
     <div class="download-button-container">
       <button id="downloadButton" onclick="downloadGreeting()">تحميل التهنئة</button>
       <button class="secondary" onclick="saveToGallery()">حفظ في الألبوم</button>
+    </div>
+    <div id="iosInstructions" class="instructions">
+      على أجهزة iOS: اضغط مع الاستمرار على الصورة المعاينة ثم اختر "حفظ الصورة"
     </div>
   </div>
 
@@ -164,6 +172,12 @@
       q6: { x: 180, y: 540, color: 'white' }
     };
 
+    // كشف إذا كان الجهاز iOS
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    }
+
     function selectTemplate(templateId, templateUrl, width, height) {
       selectedTemplate = templateUrl;
       selectedTemplateId = templateId;
@@ -171,9 +185,9 @@
       previewHeight = height;
 
       const previewImage = document.getElementById('previewImage');
-      previewImage.style.width = '100%'; // اجعل عرض الصورة في المعاينة مرن
-      previewImage.style.maxWidth = width + 'px'; // تعيين أقصى عرض للصورة
-      previewImage.style.height = 'auto'; // الحفاظ على نسبة العرض إلى الارتفاع
+      previewImage.style.width = '100%';
+      previewImage.style.maxWidth = width + 'px';
+      previewImage.style.height = 'auto';
 
       updatePreview();
     }
@@ -215,6 +229,11 @@
           previewImage.src = canvas.toDataURL('image/png');
           previewImage.style.display = 'block';
 
+          // إظهار التعليمات لأجهزة iOS
+          if (isIOS()) {
+            document.getElementById('iosInstructions').style.display = 'block';
+          }
+
           if (download) {
             const link = document.createElement('a');
             link.download = 'greeting.png';
@@ -232,35 +251,27 @@
     }
 
     function saveToGallery() {
-      generateGreeting(false); // تأكد من تحديث الصورة على الكانفاس
+      generateGreeting(false);
       
-      const canvas = document.getElementById('canvas');
-      canvas.toBlob(function(blob) {
-        // إنشاء رابط للصورة
-        const url = URL.createObjectURL(blob);
-        
-        // إنشاء رابط تحميل
+      if (isIOS()) {
+        // لأجهزة iOS نعرض التعليمات فقط
+        alert("على أجهزة iOS، اضغط مع الاستمرار على الصورة المعاينة ثم اختر 'حفظ الصورة' لحفظها مباشرة في الألبوم.");
+      } else {
+        // لأجهزة أخرى نستخدم طريقة التحميل العادية
+        const canvas = document.getElementById('canvas');
         const link = document.createElement('a');
-        link.href = url;
         link.download = 'تهنئة عيد الفطر.png';
-        
-        // محاكاة النقر على الرابط لبدء التحميل
+        link.href = canvas.toDataURL('image/png');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         
-        // تحرير الذاكرة
-        setTimeout(() => {
-          URL.revokeObjectURL(url);
-        }, 100);
-        
-        // رسالة تأكيد للمستخدم
-        alert('تم حفظ التهنئة في ألبوم الصور الخاص بك');
-      }, 'image/png');
+        alert('تم تحميل التهنئة، الرجاء حفظها في الألبوم من خلال تطبيق الملفات أو المعرض');
+      }
     }
 
     function shareOnWhatsApp() {
-      generateGreeting(false); // تأكد من تحديث الصورة على الكانفاس
+      generateGreeting(false);
 
       const canvas = document.getElementById('canvas');
       canvas.toBlob(function(blob) {
@@ -270,6 +281,13 @@
         window.open(whatsappUrl, '_blank');
       }, 'image/png');
     }
+
+    // كشف نظام التشغيل عند التحميل
+    window.onload = function() {
+      if (isIOS()) {
+        document.getElementById('iosInstructions').style.display = 'block';
+      }
+    };
   </script>
 </body>
 </html>
