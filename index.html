@@ -100,17 +100,24 @@
     }
     .ios-instructions {
       color: white;
-      background-color: rgba(0,0,0,0.5);
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      display: none;
+      background-color: rgba(0,0,0,0.7);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
       text-align: center;
-      max-width: 80%;
+      max-width: 90%;
+      font-size: 1rem;
+      display: none;
     }
     #previewImage.zoomed {
-      transform: scale(1.1);
+      transform: scale(1.2);
       transition: transform 0.3s;
+      z-index: 100;
+      position: relative;
+    }
+    .ios-save-btn {
+      background: #b49d3f;
+      display: none;
     }
   </style>
 </head>
@@ -151,10 +158,12 @@
     <img id="previewImage" src="" alt="معاينة القالب مع الاسم" style="display: none;">
     <div class="download-button-container">
       <div class="ios-instructions" id="iosInstructions">
-        لحفظ الصورة في الألبوم مباشرة على أجهزة :<br>
-        اضغط مطولاً على الصورة ثم اختر "حفظ الصورة"
+        <strong>لحفظ الصورة في ألبوم الصور:</strong><br>
+        1. اضغط مطولاً على الصورة أعلاه<br>
+        2. اختر "حفظ الصورة" من القائمة
       </div>
-      <button id="downloadButton" onclick="generateGreeting()">تحميل التهنئة</button>
+      <button id="downloadButton" onclick="downloadImage()">تحميل التهنئة</button>
+      <button class="ios-save-btn" id="iosSaveBtn" onclick="showIOSSaveGuide()">حفظ في الألبوم</button>
     </div>
   </div>
 
@@ -203,7 +212,7 @@
       generateGreeting(false);
     }
 
-    function generateGreeting(download = true) {
+    function generateGreeting(download = false) {
       const name = document.getElementById('name').value;
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');
@@ -232,16 +241,13 @@
           previewImage.src = canvas.toDataURL('image/png');
           previewImage.style.display = 'block';
 
-          // إظهار التعليمات لأجهزة iOS
+          // إظهار التعليمات والأزرار المناسبة لكل جهاز
           if (isIOS()) {
             document.getElementById('iosInstructions').style.display = 'block';
-          }
-
-          if (download) {
-            const link = document.createElement('a');
-            link.download = 'greeting.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            document.getElementById('iosSaveBtn').style.display = 'block';
+            document.getElementById('downloadButton').style.display = 'none';
+          } else {
+            document.getElementById('downloadButton').style.display = 'block';
           }
         };
       } else {
@@ -249,24 +255,23 @@
       }
     }
 
-    // تكبير الصورة عند النقر (لأجهزة iOS)
+    function downloadImage() {
+      generateGreeting(true);
+    }
+
+    function showIOSSaveGuide() {
+      const previewImage = document.getElementById('previewImage');
+      previewImage.classList.add('zoomed');
+      
+      alert('الرجاء الضغط مطولاً على الصورة المعروضة ثم اختيار "حفظ الصورة"');
+    }
+
+    // تكبير/تصغير الصورة عند النقر (لأجهزة iOS)
     document.getElementById('previewImage').addEventListener('click', function() {
       if (isIOS()) {
         this.classList.toggle('zoomed');
       }
     });
-
-    function shareOnWhatsApp() {
-      generateGreeting(false);
-
-      const canvas = document.getElementById('canvas');
-      canvas.toBlob(function(blob) {
-        const url = URL.createObjectURL(blob);
-        const message = `أرسل لك تهنئة عيد الفطر! قم بتحميل الصورة من الرابط التالي:`;
-        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)} ${encodeURIComponent(url)}`;
-        window.open(whatsappUrl, '_blank');
-      }, 'image/png');
-    }
 
     // إظهار التعليمات تلقائياً لأجهزة iOS عند التحميل
     window.onload = function() {
