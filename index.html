@@ -95,7 +95,6 @@
       font-size: 1.2rem; /* حجم خط أكبر */
       cursor: pointer;
     }
-    
   </style>
 </head>
 <body>
@@ -127,7 +126,6 @@
     <div class="template" onclick="selectTemplate('q5', 'https://i.postimg.cc/PxKBXFt7/q7.jpg', 300, 500)">
       <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
     </div>
-    
   </div>
 
   <!-- معاينة التهنئة وزر التحميل -->
@@ -140,8 +138,6 @@
   </div>
 
   <canvas id="canvas" style="display:none;"></canvas>
-
- 
 
   <script>
     let selectedTemplate = '';
@@ -171,11 +167,10 @@
 
       updatePreview();
     }
+
     function calculateFontSize(textLength) {
-  return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
-}
-
-
+      return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
+    }
 
     function updatePreview() {
       generateGreeting(false);
@@ -214,7 +209,9 @@
             const link = document.createElement('a');
             link.download = 'greeting.png';
             link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link); // إضافة الرابط إلى DOM
             link.click();
+            document.body.removeChild(link); // إزالة الرابط بعد التحميل
           }
         };
       } else {
