@@ -176,7 +176,7 @@
       generateGreeting(false);
     }
 
-    function generateGreeting(download = true) {
+    function generateGreeting(download = false) {
       const name = document.getElementById('name').value;
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');
@@ -206,33 +206,27 @@
           previewImage.style.display = 'block';
 
           if (download) {
-            canvas.toBlob(function(blob) {
-              const url = URL.createObjectURL(blob);
-              const link = document.createElement('a');
-              link.href = url;
-              link.download = 'greeting.png';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-              URL.revokeObjectURL(url); // إلغاء الرابط بعد التحميل
+            canvas.toBlob(blob => {
+              const file = new File([blob], "greeting.png", { type: 'image/png' });
+              if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                navigator.share({
+                  files: [file],
+                  title: 'تهنئة عيد الفطر',
+                  text: 'إليك تهنئة عيد الفطر!'
+                }).then(() => {
+                  console.log('تمت المشاركة بنجاح');
+                }).catch((error) => {
+                  console.error('فشلت المشاركة:', error);
+                });
+              } else {
+                alert("لا يمكن استخدام خاصية المشاركة في هذا المتصفح.");
+              }
             }, 'image/png');
           }
         };
       } else {
         alert("يرجى اختيار قالب تهنئة أولاً!");
       }
-    }
-
-    function shareOnWhatsApp() {
-      generateGreeting(false);
-
-      const canvas = document.getElementById('canvas');
-      canvas.toBlob(function(blob) {
-        const url = URL.createObjectURL(blob);
-        const message = `أرسل لك تهنئة عيد الفطر! قم بتحميل الصورة من الرابط التالي:`;
-        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)} ${encodeURIComponent(url)}`;
-        window.open(whatsappUrl, '_blank');
-      }, 'image/png');
     }
   </script>
 </body>
