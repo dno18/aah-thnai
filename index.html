@@ -11,8 +11,8 @@
       height: 100%;
       background-image: repeating-radial-gradient(#0a58b1ee 88%, #b49d3f 90%);
       background-size: 50px 50px;
-      position: relative;
-      font-family: "Montserrat", sans-serif;
+      position: relative; /* لجعل الزر في الزاوية */
+      font-family: "Montserrat", sans-serif; /* تعيين خط */
     }
     /* الشعار */
     .logo-container {
@@ -22,7 +22,7 @@
     .logo-container img {
       max-width: 100%;
       height: auto;
-      max-width: 210px;
+      max-width: 210px; /* أقصى عرض للشعار */
     }
     /* صندوق الإدخال */
     .input-container {
@@ -37,7 +37,7 @@
       max-width: 450px;
       margin: 60px 0;
       text-align: center;
-      font-size: 1.6rem;
+      font-size: 1.6rem; /* زيادة حجم الخط */
       border-radius: 10px;
     }
     /* حاوية القوالب */
@@ -50,14 +50,14 @@
     }
     .template {
       cursor: pointer;
-      flex: 1 1 300px;
-      max-width: 300px;
+      flex: 1 1 300px; /* جعل القوالب مرنة مع حد أدنى */
+      max-width: 300px; /* أقصى عرض لكل قالب */
     }
     .template img {
       border-radius: 15px;
       transition: transform 0.2s;
-      width: 100%;
-      height: auto;
+      width: 100%; /* جعل عرض الصورة مرن */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
     }
     .template img:hover {
       transform: scale(1.05);
@@ -74,17 +74,13 @@
       border-radius: 10px;
       display: block;
       margin: auto;
-      width: 100%;
-      max-width: 590px;
-      height: auto;
+      width: 100%; /* جعل عرض الصورة مرن */
+      max-width: 590px; /* تعيين أقصى عرض للصورة في المعاينة */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
     }
     /* زر التحميل */
     .download-button-container {
       margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
     button {
       position: relative;
@@ -95,20 +91,11 @@
       background: #183153;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 1.2rem;
+      padding: 10px 20px; /* إضافة مساحة داخل الزر */
+      font-size: 1.2rem; /* حجم خط أكبر */
       cursor: pointer;
     }
-    button.secondary {
-      background: #b49d3f;
-    }
-    .instructions {
-      margin-top: 10px;
-      color: white;
-      text-align: center;
-      font-size: 0.9rem;
-      display: none;
-    }
+    
   </style>
 </head>
 <body>
@@ -140,6 +127,7 @@
     <div class="template" onclick="selectTemplate('q5', 'https://i.postimg.cc/PxKBXFt7/q7.jpg', 300, 500)">
       <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
     </div>
+    
   </div>
 
   <!-- معاينة التهنئة وزر التحميل -->
@@ -147,15 +135,13 @@
     <h2>معاينة التهنئة</h2>
     <img id="previewImage" src="" alt="معاينة القالب مع الاسم" style="display: none;">
     <div class="download-button-container">
-      <button id="downloadButton" onclick="downloadGreeting()">تحميل التهنئة</button>
-      <button class="secondary" onclick="saveToGallery()">حفظ في الألبوم</button>
-    </div>
-    <div id="iosInstructions" class="instructions">
-      على أجهزة iOS: اضغط مع الاستمرار على الصورة المعاينة ثم اختر "حفظ الصورة"
+      <button id="downloadButton" onclick="generateGreeting()">تحميل التهنئة</button>
     </div>
   </div>
 
   <canvas id="canvas" style="display:none;"></canvas>
+
+ 
 
   <script>
     let selectedTemplate = '';
@@ -172,12 +158,6 @@
       q6: { x: 180, y: 540, color: 'white' }
     };
 
-    // كشف إذا كان الجهاز iOS
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    }
-
     function selectTemplate(templateId, templateUrl, width, height) {
       selectedTemplate = templateUrl;
       selectedTemplateId = templateId;
@@ -185,22 +165,23 @@
       previewHeight = height;
 
       const previewImage = document.getElementById('previewImage');
-      previewImage.style.width = '100%';
-      previewImage.style.maxWidth = width + 'px';
-      previewImage.style.height = 'auto';
+      previewImage.style.width = '100%'; // اجعل عرض الصورة في المعاينة مرن
+      previewImage.style.maxWidth = width + 'px'; // تعيين أقصى عرض للصورة
+      previewImage.style.height = 'auto'; // الحفاظ على نسبة العرض إلى الارتفاع
 
       updatePreview();
     }
-    
     function calculateFontSize(textLength) {
-      return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
-    }
+  return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
+}
+
+
 
     function updatePreview() {
       generateGreeting(false);
     }
 
-    function generateGreeting(download = false) {
+    function generateGreeting(download = true) {
       const name = document.getElementById('name').value;
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');
@@ -229,11 +210,6 @@
           previewImage.src = canvas.toDataURL('image/png');
           previewImage.style.display = 'block';
 
-          // إظهار التعليمات لأجهزة iOS
-          if (isIOS()) {
-            document.getElementById('iosInstructions').style.display = 'block';
-          }
-
           if (download) {
             const link = document.createElement('a');
             link.download = 'greeting.png';
@@ -246,32 +222,8 @@
       }
     }
 
-    function downloadGreeting() {
-      generateGreeting(true);
-    }
-
-    function saveToGallery() {
-      generateGreeting(false);
-      
-      if (isIOS()) {
-        // لأجهزة iOS نعرض التعليمات فقط
-        alert("على أجهزة iOS، اضغط مع الاستمرار على الصورة المعاينة ثم اختر 'حفظ الصورة' لحفظها مباشرة في الألبوم.");
-      } else {
-        // لأجهزة أخرى نستخدم طريقة التحميل العادية
-        const canvas = document.getElementById('canvas');
-        const link = document.createElement('a');
-        link.download = 'تهنئة عيد الفطر.png';
-        link.href = canvas.toDataURL('image/png');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        alert('تم تحميل التهنئة، الرجاء حفظها في الألبوم من خلال تطبيق الملفات أو المعرض');
-      }
-    }
-
     function shareOnWhatsApp() {
-      generateGreeting(false);
+      generateGreeting(false); // تأكد من تحديث الصورة على الكانفاس
 
       const canvas = document.getElementById('canvas');
       canvas.toBlob(function(blob) {
@@ -281,13 +233,6 @@
         window.open(whatsappUrl, '_blank');
       }, 'image/png');
     }
-
-    // كشف نظام التشغيل عند التحميل
-    window.onload = function() {
-      if (isIOS()) {
-        document.getElementById('iosInstructions').style.display = 'block';
-      }
-    };
   </script>
 </body>
 </html>
