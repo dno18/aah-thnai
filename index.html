@@ -1,250 +1,360 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تهنئة عيد الفطر</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0a58b1, #b49d3f);
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        }
-        
-        .logo {
-            max-width: 200px;
-            margin: 0 auto 20px;
-        }
-        
-        input {
-            padding: 12px;
-            width: 80%;
-            margin: 20px 0;
-            font-size: 18px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .templates {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .template {
-            width: 150px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        
-        .template:hover {
-            transform: scale(1.05);
-            border-color: #b49d3f;
-        }
-        
-        .template img {
-            width: 100%;
-            border-radius: 6px;
-        }
-        
-        .preview {
-            margin: 20px auto;
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            display: none;
-        }
-        
-        .buttons {
-            margin: 25px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 200px;
-            transition: all 0.3s;
-        }
-        
-        .download-btn {
-            background: #183153;
-            color: white;
-        }
-        
-        .save-btn {
-            background: #b49d3f;
-            color: white;
-            display: none;
-        }
-        
-        .instructions {
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px auto;
-            max-width: 90%;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مؤسسة عبدالمنعم الراشد الإنسانية - تهنئة عيد الفطر</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* الأساسيات */
+    body {
+      width: 100%;
+      height: 100%;
+      background-image: repeating-radial-gradient(#0a58b1ee 88%, #b49d3f 90%);
+      background-size: 50px 50px;
+      position: relative;
+      font-family: "Montserrat", sans-serif;
+    }
+    /* الشعار */
+    .logo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo-container img {
+      max-width: 100%;
+      height: auto;
+      max-width: 210px;
+    }
+    /* صندوق الإدخال */
+    .input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+    }
+    input[type="text"] {
+      padding: 6px;
+      width: 80%;
+      max-width: 450px;
+      margin: 60px 0;
+      text-align: center;
+      font-size: 1.6rem;
+      border-radius: 10px;
+    }
+    /* حاوية القوالب */
+    .templates {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .template {
+      cursor: pointer;
+      flex: 1 1 300px;
+      max-width: 300px;
+    }
+    .template img {
+      border-radius: 15px;
+      transition: transform 0.2s;
+      width: 100%;
+      height: auto;
+    }
+    .template img:hover {
+      transform: scale(1.05);
+    }
+    /* معاينة التهنئة */
+    .preview-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .preview-container img {
+      border-radius: 10px;
+      display: block;
+      margin: auto;
+      width: 100%;
+      max-width: 590px;
+      height: auto;
+      cursor: pointer;
+    }
+    /* زر التحميل */
+    .download-button-container {
+      margin-top: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background: #183153;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 0 auto;
+      width: 200px;
+      gap: 8px;
+    }
+    .ios-instructions {
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      text-align: center;
+      max-width: 90%;
+      font-size: 1rem;
+      display: none;
+    }
+    #previewImage.zoomed {
+      transform: scale(1.2);
+      transition: transform 0.3s;
+      z-index: 100;
+      position: relative;
+    }
+    .ios-save-btn {
+      background: #b49d3f;
+      display: none;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://www.aahf.sa/public/storage/infos/February2021/NHIJ1Lp8i9G4xNqy7XNa.png" alt="شعار المؤسسة" class="logo">
-        
-        <input type="text" id="nameInput" placeholder="أدخل اسمك هنا">
-        
-        <div class="templates">
-            <div class="template" data-template="1">
-                <img src="https://i.postimg.cc/hP2WGShv/q1p2.jpg" alt="قالب 1">
-            </div>
-            <div class="template" data-template="2">
-                <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2">
-            </div>
-            <div class="template" data-template="3">
-                <img src="https://i.postimg.cc/Nj9FxrvW/q2p.png" alt="قالب 3">
-            </div>
-            <div class="template" data-template="4">
-                <img src="https://i.postimg.cc/RhbdJCBf/q5.jpg" alt="قالب 4">
-            </div>
-            <div class="template" data-template="5">
-                <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
-            </div>
-        </div>
-        
-        <img id="previewImage" class="preview" alt="معاينة التهنئة">
-        
-        <div class="instructions" id="iosInstructions">
-            <h3>طريقة الحفظ على الآيفون:</h3>
-            <p>1. اضغط مطولاً على الصورة أعلاه</p>
-            <p>2. اختر "حفظ الصورة" من القائمة</p>
-        </div>
-        
-        <div class="buttons">
-            <button class="download-btn" id="downloadBtn">تحميل التهنئة</button>
-            <button class="save-btn" id="saveBtn">حفظ في الألبوم</button>
-        </div>
+  
+  <!-- الشعار -->
+  <div class="logo-container">
+    <img src="https://www.aahf.sa/public/storage/infos/February2021/NHIJ1Lp8i9G4xNqy7XNa.png" alt="شعار الموقع">
+  </div>
+
+  <!-- صندوق الإدخال -->
+  <div class="input-container">
+    <input type="text" id="name" placeholder="أدخل اسمك هنا" oninput="updatePreview()">
+  </div>
+
+  <!-- قوالب التهنئة -->
+  <div class="templates">
+    <div class="template" onclick="selectTemplate('q1', 'https://i.postimg.cc/hP2WGShv/q1p2.jpg', 587, 387)">
+      <img src="https://i.postimg.cc/hP2WGShv/q1p2.jpg" alt="قالب 1">
     </div>
+    <div class="template" onclick="selectTemplate('q2', 'https://i.postimg.cc/Wz9NfLGh/q2.jpg', 587, 387)">
+      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2">
+    </div>
+    <div class="template" onclick="selectTemplate('q3', 'https://i.postimg.cc/Nj9FxrvW/q2p.png', 587, 387)">
+      <img src="https://i.postimg.cc/Nj9FxrvW/q2p.png" alt="قالب 3">
+    </div>
+    <div class="template" onclick="selectTemplate('q4', 'https://i.postimg.cc/RhbdJCBf/q5.jpg', 300, 500)">
+      <img src="https://i.postimg.cc/RhbdJCBf/q5.jpg" alt="قالب 4">
+    </div>
+    <div class="template" onclick="selectTemplate('q5', 'https://i.postimg.cc/PxKBXFt7/q7.jpg', 300, 500)">
+      <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
+    </div>
+  </div>
 
-    <canvas id="canvas" style="display:none;"></canvas>
+  <!-- معاينة التهنئة وزر التحميل -->
+  <div class="preview-container">
+    <h2>معاينة التهنئة</h2>
+    <img id="previewImage" src="" alt="معاينة القالب مع الاسم" style="display: none;">
+    <div class="download-button-container">
+      <div class="ios-instructions" id="iosInstructions">
+        <strong>لحفظ الصورة في ألبوم الصور:</strong><br>
+        1. اضغط مطولاً على الصورة أعلاه<br>
+        2. اختر "حفظ الصورة" من القائمة
+      </div>
+      <button id="downloadButton" onclick="downloadImage()">
+        <i class="fas fa-download"></i> تحميل التهنئة
+      </button>
+      <button class="ios-save-btn" id="iosSaveBtn" onclick="showIOSSaveGuide()">
+        <i class="fas fa-save"></i> حفظ في الألبوم
+      </button>
+      <button class="whatsapp-btn" id="whatsappBtn" onclick="shareOnWhatsApp()">
+        <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
+      </button>
+    </div>
+  </div>
 
-    <script>
-        // بيانات القوالب
-        const templates = {
-            1: { src: "https://i.postimg.cc/hP2WGShv/q1p2.jpg", textX: 338, textY: 359, color: "white" },
-            2: { src: "https://i.postimg.cc/Wz9NfLGh/q2.jpg", textX: 335, textY: 320, color: "black" },
-            3: { src: "https://i.postimg.cc/Nj9FxrvW/q2p.png", textX: 400, textY: 344, color: "black" },
-            4: { src: "https://i.postimg.cc/RhbdJCBf/q5.jpg", textX: 145, textY: 265, color: "black" },
-            5: { src: "https://i.postimg.cc/PxKBXFt7/q7.jpg", textX: 145, textY: 290, color: "black" }
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    let selectedTemplate = '';
+    let selectedTemplateId = '';
+    let previewWidth = 0;
+    let previewHeight = 0;
+    let currentImageUrl = null;
+
+    const textPositions = {
+      q1: { x: 338, y: 359, color: 'white' },
+      q2: { x: 335, y: 320, color: 'black' },
+      q3: { x: 400, y: 344, color: 'black' },
+      q4: { x: 145, y: 265, color: 'black' },
+      q5: { x: 145, y: 290, color: 'black' },
+      q6: { x: 180, y: 540, color: 'white' }
+    };
+
+    // كشف إذا كان الجهاز iOS
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    }
+
+    function selectTemplate(templateId, templateUrl, width, height) {
+      selectedTemplate = templateUrl;
+      selectedTemplateId = templateId;
+      previewWidth = width;
+      previewHeight = height;
+
+      const previewImage = document.getElementById('previewImage');
+      previewImage.style.width = '100%';
+      previewImage.style.maxWidth = width + 'px';
+      previewImage.style.height = 'auto';
+
+      updatePreview();
+    }
+
+    function calculateFontSize(textLength) {
+      return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
+    }
+
+    function updatePreview() {
+      generateGreeting(false);
+    }
+
+    function generateGreeting(download = false) {
+      const name = document.getElementById('name').value;
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      const previewImage = document.getElementById('previewImage');
+
+      if (selectedTemplate && selectedTemplateId) {
+        canvas.width = previewWidth;
+        canvas.height = previewHeight;
+
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.src = selectedTemplate;
+
+        img.onload = function() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          if (name) {
+            let position = textPositions[selectedTemplateId];
+            ctx.font = `${calculateFontSize(name.length)}px Arial`;
+            ctx.fillStyle = position.color;
+            ctx.textAlign = 'center';
+            ctx.fillText(name, position.x, position.y);
+          }
+
+          currentImageUrl = canvas.toDataURL('image/png');
+          previewImage.src = currentImageUrl;
+          previewImage.style.display = 'block';
+
+          // إظهار التعليمات والأزرار المناسبة لكل جهاز
+          if (isIOS()) {
+            document.getElementById('iosInstructions').style.display = 'block';
+            document.getElementById('iosSaveBtn').style.display = 'flex';
+            document.getElementById('downloadButton').style.display = 'flex';
+          } else {
+            document.getElementById('iosInstructions').style.display = 'none';
+            document.getElementById('iosSaveBtn').style.display = 'none';
+            document.getElementById('downloadButton').style.display = 'flex';
+          }
         };
+      } else {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+      }
+    }
 
-        // العناصر
-        const nameInput = document.getElementById("nameInput");
-        const previewImage = document.getElementById("previewImage");
-        const downloadBtn = document.getElementById("downloadBtn");
-        const saveBtn = document.getElementById("saveBtn");
-        const iosInstructions = document.getElementById("iosInstructions");
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
+    function downloadImage() {
+      const name = document.getElementById('name').value;
+      if (!selectedTemplate) {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+        return;
+      }
+      if (!name) {
+        alert("يرجى إدخال اسمك أولاً!");
+        return;
+      }
 
-        // المتغيرات
-        let selectedTemplate = null;
+      const link = document.createElement('a');
+      link.download = 'تهنئة-عيد-الفطر-' + name + '.png';
+      link.href = currentImageUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      if (isIOS()) {
+        alert("تم تحميل الصورة إلى مجلد 'الملفات'. يمكنك نقلها إلى الألبوم من هناك.");
+      }
+    }
 
-        // اختيار القالب
-        document.querySelectorAll(".template").forEach(template => {
-            template.addEventListener("click", () => {
-                selectedTemplate = templates[template.dataset.template];
-                updatePreview();
-            });
-        });
+    function showIOSSaveGuide() {
+      const previewImage = document.getElementById('previewImage');
+      previewImage.classList.add('zoomed');
+      
+      alert('الرجاء الضغط مطولاً على الصورة المعروضة ثم اختيار "حفظ الصورة"');
+    }
 
-        // تحديث المعاينة
-        function updatePreview() {
-            const name = nameInput.value.trim();
-            if (!selectedTemplate || !name) return;
+    async function shareOnWhatsApp() {
+      if (!currentImageUrl) {
+        alert("الرجاء إنشاء التهنئة أولاً");
+        return;
+      }
 
-            const img = new Image();
-            img.crossOrigin = "Anonymous";
-            img.src = selectedTemplate.src;
-            
-            img.onload = function() {
-                canvas.width = img.width;
-                canvas.height = img.height;
-                
-                ctx.drawImage(img, 0, 0);
-                
-                // إضافة النص
-                ctx.font = `20px Arial`;
-                ctx.fillStyle = selectedTemplate.color;
-                ctx.textAlign = "center";
-                ctx.fillText(name, selectedTemplate.textX, selectedTemplate.textY);
-                
-                // عرض المعاينة
-                previewImage.src = canvas.toDataURL("image/png");
-                previewImage.style.display = "block";
-                
-                // إظهار الأزرار المناسبة
-                if (isIOS()) {
-                    saveBtn.style.display = "block";
-                    iosInstructions.style.display = "block";
-                }
-            };
+      const name = document.getElementById('name').value || "مستخدم";
+      const message = `تهنئة عيد الفطر من ${name}`;
+
+      try {
+        // تحويل data URL إلى blob
+        const response = await fetch(currentImageUrl);
+        const blob = await response.blob();
+        const file = new File([blob], "تهنئة_عيد_الفطر.png", { type: "image/png" });
+
+        // محاولة استخدام Web Share API إذا كان متاحاً
+        if (navigator.share && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: 'تهنئة عيد الفطر',
+            text: message
+          });
+        } else {
+          // إذا لم يكن Web Share متاحاً، نستخدم رابط واتساب
+          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
+          window.open(whatsappUrl, '_blank');
         }
+      } catch (error) {
+        console.error('Error sharing:', error);
+        // طريقة بديلة إذا فشلت المشاركة
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+    }
 
-        // تحميل الصورة
-        downloadBtn.addEventListener("click", () => {
-            if (!selectedTemplate) {
-                alert("الرجاء اختيار قالب أولاً");
-                return;
-            }
-            
-            const name = nameInput.value.trim();
-            if (!name) {
-                alert("الرجاء إدخال اسمك أولاً");
-                return;
-            }
-            
-            const link = document.createElement("a");
-            link.download = `تهنئة-عيد-الفطر-${name}.png`;
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-        });
+    // تكبير/تصغير الصورة عند النقر (لأجهزة iOS)
+    document.getElementById('previewImage').addEventListener('click', function() {
+      if (isIOS()) {
+        this.classList.toggle('zoomed');
+      }
+    });
 
-        // حفظ الصورة (لـ iOS)
-        saveBtn.addEventListener("click", () => {
-            alert("الرجاء الضغط مطولاً على الصورة ثم اختيار 'حفظ الصورة'");
-        });
-
-        // كشف جهاز iOS
-        function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent);
-        }
-
-        // تحديث عند كتابة الاسم
-        nameInput.addEventListener("input", updatePreview);
-    </script>
+    // إظهار التعليمات تلقائياً لأجهزة iOS عند التحميل
+    window.onload = function() {
+      if (isIOS()) {
+        document.getElementById('iosInstructions').style.display = 'block';
+      }
+    };
+  </script>
 </body>
 </html>
