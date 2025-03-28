@@ -247,6 +247,8 @@
             document.getElementById('iosSaveBtn').style.display = 'block';
             document.getElementById('downloadButton').style.display = 'none';
           } else {
+            document.getElementById('iosInstructions').style.display = 'none';
+            document.getElementById('iosSaveBtn').style.display = 'none';
             document.getElementById('downloadButton').style.display = 'block';
           }
         };
@@ -256,7 +258,23 @@
     }
 
     function downloadImage() {
-      generateGreeting(true);
+      const name = document.getElementById('name').value;
+      if (!selectedTemplate) {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+        return;
+      }
+      if (!name) {
+        alert("يرجى إدخال اسمك أولاً!");
+        return;
+      }
+
+      const canvas = document.getElementById('canvas');
+      const link = document.createElement('a');
+      link.download = 'تهنئة-عيد-الفطر-' + name + '.png';
+      link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     function showIOSSaveGuide() {
