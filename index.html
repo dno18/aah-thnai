@@ -307,7 +307,7 @@
       alert('الرجاء الضغط مطولاً على الصورة المعروضة ثم اختيار "حفظ الصورة"');
     }
 
-    async function shareOnWhatsApp() {
+    function shareOnWhatsApp() {
       if (!currentImageUrl) {
         alert("الرجاء إنشاء التهنئة أولاً");
         return;
@@ -315,31 +315,23 @@
 
       const name = document.getElementById('name').value || "مستخدم";
       const message = `تهنئة عيد الفطر من ${name}`;
-
-      try {
-        // تحويل data URL إلى blob
-        const response = await fetch(currentImageUrl);
-        const blob = await response.blob();
-        const file = new File([blob], "تهنئة_عيد_الفطر.png", { type: "image/png" });
-
-        // محاولة استخدام Web Share API إذا كان متاحاً
-        if (navigator.share && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: 'تهنئة عيد الفطر',
-            text: message
-          });
-        } else {
-          // إذا لم يكن Web Share متاحاً، نستخدم رابط واتساب
-          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
-          window.open(whatsappUrl, '_blank');
+      
+      // إنشاء رابط واتساب مباشر
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}%0A%0A${encodeURIComponent("انظر إلى تهنئتي:")}`;
+      
+      // فتح نافذة جديدة لواتساب
+      window.open(whatsappUrl, '_blank');
+      
+      // بعد ثانية واحدة، نفتح محاولة مشاركة الصورة (لن تعمل في كل المتصفحات)
+      setTimeout(() => {
+        try {
+          const link = document.createElement('a');
+          link.href = `whatsapp://send?text=${encodeURIComponent(message)}`;
+          link.click();
+        } catch (e) {
+          console.log("لا يمكن فتح تطبيق واتساب مباشرة");
         }
-      } catch (error) {
-        console.error('Error sharing:', error);
-        // طريقة بديلة إذا فشلت المشاركة
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
-        window.open(whatsappUrl, '_blank');
-      }
+      }, 1000);
     }
 
     // تكبير/تصغير الصورة عند النقر (لأجهزة iOS)
