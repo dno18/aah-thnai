@@ -83,6 +83,10 @@
     .download-button-container {
       margin-top: 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
     button {
       position: relative;
@@ -96,14 +100,15 @@
       padding: 10px 20px;
       font-size: 1.2rem;
       cursor: pointer;
-      margin: 10px auto;
+      margin: 0 auto;
+      width: 200px;
     }
     .ios-instructions {
       color: white;
       background-color: rgba(0,0,0,0.7);
       padding: 12px;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       text-align: center;
       max-width: 90%;
       font-size: 1rem;
@@ -117,7 +122,9 @@
     }
     .ios-save-btn {
       background: #b49d3f;
-      display: none;
+    }
+    .normal-download-btn {
+      background: #183153;
     }
   </style>
 </head>
@@ -162,8 +169,8 @@
         1. اضغط مطولاً على الصورة أعلاه<br>
         2. اختر "حفظ الصورة" من القائمة
       </div>
-      <button id="downloadButton" onclick="downloadImage()">تحميل التهنئة</button>
-      <button class="ios-save-btn" id="iosSaveBtn" onclick="showIOSSaveGuide()">حفظ في الألبوم</button>
+      <button class="normal-download-btn" onclick="downloadImage()">تحميل إلى الملفات</button>
+      <button class="ios-save-btn" id="iosSaveBtn" onclick="showIOSSaveGuide()">حفظ في الألبوم (لأجهزة iPhone)</button>
     </div>
   </div>
 
@@ -241,15 +248,13 @@
           previewImage.src = canvas.toDataURL('image/png');
           previewImage.style.display = 'block';
 
-          // إظهار التعليمات والأزرار المناسبة لكل جهاز
+          // إظهار التعليمات لأجهزة iOS
           if (isIOS()) {
             document.getElementById('iosInstructions').style.display = 'block';
             document.getElementById('iosSaveBtn').style.display = 'block';
-            document.getElementById('downloadButton').style.display = 'none';
           } else {
             document.getElementById('iosInstructions').style.display = 'none';
             document.getElementById('iosSaveBtn').style.display = 'none';
-            document.getElementById('downloadButton').style.display = 'block';
           }
         };
       } else {
@@ -275,6 +280,10 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      
+      if (isIOS()) {
+        alert("تم تحميل الصورة إلى مجلد 'الملفات'. يمكنك نقلها إلى الألبوم من هناك.");
+      }
     }
 
     function showIOSSaveGuide() {
@@ -295,6 +304,10 @@
     window.onload = function() {
       if (isIOS()) {
         document.getElementById('iosInstructions').style.display = 'block';
+        document.getElementById('iosSaveBtn').style.display = 'block';
+      } else {
+        document.getElementById('iosInstructions').style.display = 'none';
+        document.getElementById('iosSaveBtn').style.display = 'none';
       }
     };
   </script>
