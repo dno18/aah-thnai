@@ -13,9 +13,10 @@
       background-size: cover;
       position: relative;
       font-family: 'Tajawal', Arial, sans-serif;
-      padding: 20px;
+      padding: clamp(10px, 2vw, 15px);
       min-height: 100vh;
       overflow-x: hidden;
+      box-sizing: border-box;
     }
 
     /* تأثير النجوم المتحركة */
@@ -39,10 +40,10 @@
     /* الشعار */
     .logo-container {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: clamp(15px, 3vw, 20px);
     }
     .logo-container img {
-      max-width: 20vw;
+      width: clamp(120px, 20vw, 300px);
       height: auto;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
     }
@@ -52,19 +53,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 20px auto;
+      margin: clamp(15px, 3vw, 20px) auto;
     }
     input[type="text"] {
-      padding: 12px;
-      width: 90%;
-      max-width: 500px;
+      padding: clamp(10px, 1.5vw, 12px);
+      width: clamp(200px, 80%, 600px);
       margin: 10px 0;
       text-align: center;
-      font-size: clamp(16px, 2.5vw, 20px);
+      font-size: clamp(14px, 2vw, 18px);
       border-radius: 12px;
       border: none;
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       transition: all 0.3s ease;
+      box-sizing: border-box;
     }
     input[type="text"]:focus {
       outline: none;
@@ -76,17 +77,15 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: clamp(10px, 2vw, 15px);
-      margin: 40px 0;
+      gap: clamp(10px, 2vw, 20px);
+      margin: clamp(20px, 4vw, 30px) 0;
     }
     .template {
       cursor: pointer;
-      background: white;
-      border-radius: 15px;
-      padding: clamp(5px, 1vw, 8px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      width: clamp(150px, 30vw, 250px);
+      width: 320px;
+      box-sizing: border-box;
     }
     .template img {
       border-radius: 10px;
@@ -94,7 +93,7 @@
       width: 100%;
       height: auto;
       aspect-ratio: 4/3;
-      object-fit: cover;
+      object-fit: contain;
     }
     .template:hover {
       transform: translateY(-5px);
@@ -110,22 +109,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 40px auto;
-      padding: 20px;
+      margin: clamp(20px, 4vw, 30px) auto;
+      padding: clamp(15px, 2vw, 20px);
       background: rgba(255,255,255,0.95);
       border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      max-width: 90%;
-      width: clamp(300px, 70vw, 700px);
+      width: clamp(300px, 80vw, 800px);
+      box-sizing: border-box;
     }
     .preview-container h2 {
-      font-size: clamp(20px, 3vw, 24px);
+      font-size: clamp(18px, 2.5vw, 22px);
       color: #183153;
-      margin-bottom: 20px;
+      margin-bottom: clamp(10px, 2vw, 15px);
     }
     .preview-container img {
       border-radius: 10px;
       max-width: 100%;
+      width: auto;
+      height: auto;
       display: block;
       margin: auto;
     }
@@ -133,8 +134,8 @@
     /* حاوية الأزرار */
     .button-container {
       display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      gap: clamp(10px, 2vw, 15px);
+      margin-top: clamp(15px, 2vw, 20px);
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -145,8 +146,8 @@
       align-items: center;
       border-radius: 5px;
       font-family: 'Tajawal', sans-serif;
-      font-size: clamp(14px, 2vw, 16px);
-      padding: 12px 24px;
+      font-size: clamp(14px, 1.8vw, 16px);
+      padding: clamp(10px, 1.5vw, 12px) clamp(20px, 3vw, 24px);
       overflow: hidden;
       cursor: pointer;
       border: none;
@@ -167,13 +168,13 @@
     /* زر الواتساب */
     .whatsapp-btn {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: clamp(15px, 3vw, 20px);
+      left: clamp(15px, 3vw, 20px);
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      width: 50px;
-      height: 50px;
+      width: clamp(50px, 10vw, 60px);
+      height: clamp(50px, 10vw, 60px);
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -189,7 +190,7 @@
       justify-content: center;
     }
     .whatsapp-btn .sign svg {
-      width: 28px;
+      width: clamp(24px, 5vw, 32px);
       fill: white;
     }
     .whatsapp-btn .text {
@@ -198,12 +199,12 @@
       width: 0%;
       opacity: 0;
       color: white;
-      font-size: 1.1em;
+      font-size: clamp(12px, 2vw, 14px);
       font-weight: 600;
       transition-duration: 0.3s;
     }
     .whatsapp-btn:hover {
-      width: 160px;
+      width: clamp(140px, 30vw, 180px);
       border-radius: 40px;
     }
     .whatsapp-btn:hover .text {
@@ -215,22 +216,39 @@
     }
 
     /* الاستجابة */
-    @media (max-width: 768px) {
-      .logo-container img {
-        max-width: 25vw;
-      }
-      input[type="text"] {
-        max-width: 95%;
-      }
-      .templates {
-        gap: 10px;
-      }
+    @media (min-width: 1024px) {
       .template {
-        width: clamp(120px, 45vw, 180px);
+        width: 320px;
       }
       .preview-container {
-        margin: 20px 10px;
-        padding: 15px;
+        width: clamp(600px, 70vw, 800px);
+      }
+      .logo-container img {
+        width: clamp(200px, 15vw, 300px);
+      }
+      input[type="text"] {
+        width: clamp(400px, 60%, 600px);
+      }
+      .templates {
+        gap: clamp(15px, 2vw, 25px);
+      }
+    }
+    @media (max-width: 768px) {
+      .template {
+        width: clamp(150px, 48vw, 200px);
+      }
+      .preview-container {
+        width: clamp(280px, 95vw, 400px);
+      }
+      .logo-container img {
+        width: clamp(100px, 25vw, 150px);
+      }
+      input[type="text"] {
+        width: clamp(200px, 95%, 350px);
+        font-size: clamp(12px, 1.8vw, 16px);
+      }
+      .templates {
+        gap: clamp(8px, 1.5vw, 12px);
       }
       .button-container {
         flex-direction: column;
@@ -238,18 +256,36 @@
       }
     }
     @media (max-width: 480px) {
+      .template {
+        width: clamp(200px, 90vw, 300px);
+      }
+      .preview-container {
+        width: clamp(250px, 95vw, 350px);
+        margin: clamp(10px, 2vw, 15px) 5px;
+      }
       .logo-container img {
-        max-width: 35vw;
+        width: clamp(80px, 25vw, 120px);
+      }
+      .input-container {
+        margin: clamp(10px, 2vw, 15px) auto;
       }
       input[type="text"] {
-        font-size: 14px;
+        width: clamp(180px, 95%, 300px);
+        font-size: clamp(11px, 1.6vw, 14px);
       }
-      .template {
-        width: clamp(100px, 80vw, 150px);
+      .preview-container h2 {
+        font-size: clamp(16px, 2vw, 18px);
       }
       .download-button, .save-to-album-button {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: clamp(8px, 1vw, 10px) clamp(16px, 2vw, 20px);
+        font-size: clamp(12px, 1.5vw, 14px);
+      }
+      .whatsapp-btn {
+        width: clamp(45px, 12vw, 50px);
+        height: clamp(45px, 12vw, 50px);
+      }
+      .whatsapp-btn .sign svg {
+        width: clamp(20px, 6vw, 28px);
       }
     }
   </style>
@@ -325,10 +361,6 @@
       selectedTemplateId = templateId;
       previewWidth = width;
       previewHeight = height;
-
-      document.getElementById('previewImage').style.width = width + 'px';
-      document.getElementById('previewImage').style.height = height + 'px';
-
       updatePreview();
     }
 
@@ -438,31 +470,30 @@
         await generateGreeting(false);
         const canvas = document.getElementById('canvas');
 
-        canvas.toBlob((blob) => {
-          const file = new File([blob], `greeting-${new Date().getTime()}.png`, { type: 'image/png' });
-          const message = 'أرسل لك تهنئة عيد الفطر! 🎉';
-
-          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-            navigator.share({
-              files: [file],
-              text: message
-            }).catch(error => {
-              console.error('Error sharing:', error);
-              fallbackWhatsAppShare(message);
-            });
-          } else {
-            fallbackWhatsAppShare(message);
+        canvas.toBlob(async (blob) => {
+          try {
+            const file = new File([blob], `greeting-${new Date().getTime()}.png`, { type: 'image/png' });
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                files: [file],
+                text: 'أرسل لك تهنئة عيد الفطر! 🎉'
+              });
+            } else {
+              const message = 'أرسل لك تهنئة عيد الفطر! 🎉';
+              const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, '_blank');
+            }
+          } catch (error) {
+            console.error('Error sharing on WhatsApp:', error);
+            const message = 'أرسل لك تهنئة عيد الفطر! 🎉';
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
           }
         }, 'image/png');
       } catch (error) {
-        console.error('Error sharing on WhatsApp:', error);
+        console.error('Error generating image for WhatsApp:', error);
         alert('حدث خطأ أثناء المشاركة. يرجى المحاولة مرة أخرى.');
       }
-    }
-
-    function fallbackWhatsAppShare(message) {
-      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
     }
 
     // Load font
