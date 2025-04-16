@@ -1,139 +1,260 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مؤسسة عبدالمنعم الراشد الإنسانية - تهنئة عيد الفطر</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* الأساسيات */
     body {
       width: 100%;
       height: 100%;
-      background-image: repeating-radial-gradient(#0a58b1ee 88%, #b49d3f 90%);
-      background-size: 50px 50px;
+      background: linear-gradient(135deg, #1a3c73 0%, #e6c34b 100%);
+      background-size: cover;
       position: relative;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Tajawal', Arial, sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
+
+    /* تأثير النجوم المتحركة */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="white" opacity="0.6"/><circle cx="90" cy="20" r="1.5" fill="white" opacity="0.5"/><circle cx="30" cy="80" r="2" fill="white" opacity="0.7"/><circle cx="70" cy="60" r="1" fill="white" opacity="0.4"/></svg>') repeat;
+      animation: twinkle 10s infinite;
+      z-index: -1;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
     /* الشعار */
     .logo-container {
       text-align: center;
       margin-bottom: 20px;
     }
     .logo-container img {
-      max-width: 100%;
+      max-width: 20vw;
       height: auto;
-      max-width: 210px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
     }
+
     /* صندوق الإدخال */
     .input-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 10px auto;
+      margin: 20px auto;
     }
     input[type="text"] {
-      padding: 6px;
-      width: 80%;
-      max-width: 450px;
-      margin: 60px 0;
+      padding: 12px;
+      width: 90%;
+      max-width: 500px;
+      margin: 10px 0;
       text-align: center;
-      font-size: 1.6rem;
-      border-radius: 10px;
+      font-size: clamp(16px, 2.5vw, 20px);
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
     }
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 12px rgba(10,88,177,0.5);
+    }
+
     /* حاوية القوالب */
     .templates {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 20px;
+      gap: clamp(10px, 2vw, 15px);
+      margin: 40px 0;
     }
     .template {
       cursor: pointer;
-      flex: 1 1 300px;
-      max-width: 300px;
+      background: white;
+      border-radius: 15px;
+      padding: clamp(5px, 1vw, 8px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      width: clamp(150px, 30vw, 250px);
     }
     .template img {
-      border-radius: 15px;
+      border-radius: 10px;
       transition: transform 0.2s;
       width: 100%;
       height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
     }
-    .template img:hover {
+    .template:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(10,88,177,0.3);
+    }
+    .template:hover img {
       transform: scale(1.05);
     }
+
     /* معاينة التهنئة */
     .preview-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      max-width: 90%;
+      width: clamp(300px, 70vw, 700px);
+    }
+    .preview-container h2 {
+      font-size: clamp(20px, 3vw, 24px);
+      color: #183153;
+      margin-bottom: 20px;
     }
     .preview-container img {
       border-radius: 10px;
+      max-width: 100%;
       display: block;
       margin: auto;
-      width: 100%;
-      max-width: 590px;
-      height: auto;
-      cursor: pointer;
     }
-    /* زر التحميل */
-    .download-button-container {
-      margin-top: 20px;
-      text-align: center;
+
+    /* حاوية الأزرار */
+    .button-container {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    button {
+    .download-button, .save-to-album-button {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
-      background: #183153;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2rem;
+      font-family: 'Tajawal', sans-serif;
+      font-size: clamp(14px, 2vw, 16px);
+      padding: 12px 24px;
+      overflow: hidden;
       cursor: pointer;
-      margin: 0 auto;
-      width: 200px;
-      gap: 8px;
-    }
-    .ios-instructions {
+      border: none;
       color: white;
-      background-color: rgba(0,0,0,0.7);
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 5px;
-      text-align: center;
-      max-width: 90%;
-      font-size: 1rem;
-      display: none;
+      transition: all 0.3s ease;
     }
-    #previewImage.zoomed {
-      transform: scale(1.2);
-      transition: transform 0.3s;
-      z-index: 100;
-      position: relative;
+    .download-button {
+      background: #183153;
     }
-    .ios-save-btn {
-      background: #b49d3f;
-      display: none;
-    }
-    .whatsapp-btn {
+    .save-to-album-button {
       background: #25D366;
-      display: block;
+    }
+    .download-button:hover, .save-to-album-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* زر الواتساب */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #00d757;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .whatsapp-btn .sign {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-btn .sign svg {
+      width: 28px;
+      fill: white;
+    }
+    .whatsapp-btn .text {
+      position: absolute;
+      right: 0%;
+      width: 0%;
+      opacity: 0;
+      color: white;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition-duration: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      width: 160px;
+      border-radius: 40px;
+    }
+    .whatsapp-btn:hover .text {
+      opacity: 1;
+      width: 70%;
+    }
+    .whatsapp-btn:active {
+      transform: translate(2px, 2px);
+    }
+
+    /* الاستجابة */
+    @media (max-width: 768px) {
+      .logo-container img {
+        max-width: 25vw;
+      }
+      input[type="text"] {
+        max-width: 95%;
+      }
+      .templates {
+        gap: 10px;
+      }
+      .template {
+        width: clamp(120px, 45vw, 180px);
+      }
+      .preview-container {
+        margin: 20px 10px;
+        padding: 15px;
+      }
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .logo-container img {
+        max-width: 35vw;
+      }
+      input[type="text"] {
+        font-size: 14px;
+      }
+      .template {
+        width: clamp(100px, 80vw, 150px);
+      }
+      .download-button, .save-to-album-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  
   <!-- الشعار -->
   <div class="logo-container">
     <img src="https://www.aahf.sa/public/storage/infos/February2021/NHIJ1Lp8i9G4xNqy7XNa.png" alt="شعار الموقع">
@@ -146,215 +267,212 @@
 
   <!-- قوالب التهنئة -->
   <div class="templates">
-    <div class="template" onclick="selectTemplate('q1', 'https://i.postimg.cc/hP2WGShv/q1p2.jpg', 587, 387)">
-      <img src="https://i.postimg.cc/hP2WGShv/q1p2.jpg" alt="قالب 1">
+    <div class="template" onclick="selectTemplate('q1', 'https://i.postimg.cc/433KJPdC/q1.jpg', 590, 390)">
+      <img src="https://i.postimg.cc/433KJPdC/q1.jpg" alt="قالب 1" loading="lazy">
     </div>
-    <div class="template" onclick="selectTemplate('q2', 'https://i.postimg.cc/Wz9NfLGh/q2.jpg', 587, 387)">
-      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2">
+    <div class="template" onclick="selectTemplate('q2', 'https://i.postimg.cc/Wz9NfLGh/q2.jpg', 590, 390)">
+      <img src="https://i.postimg.cc/Wz9NfLGh/q2.jpg" alt="قالب 2" loading="lazy">
     </div>
-    <div class="template" onclick="selectTemplate('q3', 'https://i.postimg.cc/Nj9FxrvW/q2p.png', 587, 387)">
-      <img src="https://i.postimg.cc/Nj9FxrvW/q2p.png" alt="قالب 3">
+    <div class="template" onclick="selectTemplate('q3', 'https://i.postimg.cc/0QYv4tKR/q3.jpg', 385, 530)">
+      <img src="https://i.postimg.cc/0QYv4tKR/q3.jpg" alt="قالب 3" loading="lazy">
     </div>
-    <div class="template" onclick="selectTemplate('q4', 'https://i.postimg.cc/RhbdJCBf/q5.jpg', 300, 500)">
-      <img src="https://i.postimg.cc/RhbdJCBf/q5.jpg" alt="قالب 4">
-    </div>
-    <div class="template" onclick="selectTemplate('q5', 'https://i.postimg.cc/PxKBXFt7/q7.jpg', 300, 500)">
-      <img src="https://i.postimg.cc/PxKBXFt7/q7.jpg" alt="قالب 5">
+    <div class="template" onclick="selectTemplate('q4', 'https://i.postimg.cc/zXyFN4pr/q4.jpg', 385, 530)">
+      <img src="https://i.postimg.cc/zXyFN4pr/q4.jpg" alt="قالب 4" loading="lazy">
     </div>
   </div>
 
-  <!-- معاينة التهنئة وزر التحميل -->
+  <!-- معاينة التهنئة وأزرار التحميل -->
   <div class="preview-container">
     <h2>معاينة التهنئة</h2>
     <img id="previewImage" src="" alt="معاينة القالب مع الاسم" style="display: none;">
-    <div class="download-button-container">
-      <div class="ios-instructions" id="iosInstructions">
-        <strong>لحفظ الصورة في ألبوم الصور:</strong><br>
-        1. اضغط مطولاً على الصورة أعلاه<br>
-        2. اختر "حفظ الصورة" من القائمة
-      </div>
-      <button id="downloadButton" onclick="downloadImage()">
-        <i class="fas fa-download"></i> تحميل التهنئة
-      </button>
-      <button class="ios-save-btn" id="iosSaveBtn" onclick="showIOSSaveGuide()">
-        <i class="fas fa-save"></i> حفظ في الألبوم
-      </button>
-      <button class="whatsapp-btn" id="whatsappBtn" onclick="shareOnWhatsApp()">
-        <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
-      </button>
+    <div class="button-container">
+      <button class="download-button" onclick="generateGreeting()">تحميل التهنئة</button>
+      <button class="save-to-album-button" onclick="saveToAlbum()">حفظ في الألبوم</button>
     </div>
   </div>
 
-  <canvas id="canvas" style="display:none;"></canvas>
+  <!-- زر واتساب -->
+  <button class="whatsapp-btn" onclick="shareOnWhatsApp()">
+    <div class="sign">
+      <svg viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+      </svg>
+    </div>
+    <div class="text">واتساب</div>
+  </button>
+
+  <canvas id="canvas" style="display: none;"></canvas>
 
   <script>
     let selectedTemplate = '';
     let selectedTemplateId = '';
     let previewWidth = 0;
     let previewHeight = 0;
-    let currentImageUrl = null;
 
     const textPositions = {
-      q1: { x: 338, y: 359, color: 'white' },
-      q2: { x: 335, y: 320, color: 'black' },
-      q3: { x: 400, y: 344, color: 'black' },
-      q4: { x: 145, y: 265, color: 'black' },
-      q5: { x: 145, y: 290, color: 'black' },
-      q6: { x: 180, y: 540, color: 'white' }
+      q1: { x: 335, y: 370, color: 'white' },
+      q2: { x: 335, y: 338, color: 'black' },
+      q3: { x: 196, y: 480, color: 'white' },
+      q4: { x: 189, y: 435, color: 'black' }
     };
 
-    // كشف إذا كان الجهاز iOS
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    }
-
     function selectTemplate(templateId, templateUrl, width, height) {
+      if (!templateUrl) {
+        alert("هذا القالب غير متوفر حاليًا!");
+        return;
+      }
       selectedTemplate = templateUrl;
       selectedTemplateId = templateId;
       previewWidth = width;
       previewHeight = height;
 
-      const previewImage = document.getElementById('previewImage');
-      previewImage.style.width = '100%';
-      previewImage.style.maxWidth = width + 'px';
-      previewImage.style.height = 'auto';
+      document.getElementById('previewImage').style.width = width + 'px';
+      document.getElementById('previewImage').style.height = height + 'px';
 
       updatePreview();
     }
 
     function calculateFontSize(textLength) {
-      return textLength <= 6 ? 20 : textLength <= 10 ? 18 : 16;
+      return textLength <= 5 ? 30 : textLength <= 10 ? 28 : 24;
     }
 
     function updatePreview() {
       generateGreeting(false);
     }
 
-    function generateGreeting(download = false) {
-      const name = document.getElementById('name').value;
+    async function generateGreeting(download = true) {
+      const name = document.getElementById('name').value.trim();
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');
       const previewImage = document.getElementById('previewImage');
 
-      if (selectedTemplate && selectedTemplateId) {
-        canvas.width = previewWidth;
-        canvas.height = previewHeight;
+      if (!selectedTemplate || !selectedTemplateId) {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+        return;
+      }
 
+      canvas.width = previewWidth;
+      canvas.height = previewHeight;
+
+      try {
         const img = new Image();
         img.crossOrigin = "anonymous";
         img.src = selectedTemplate;
 
-        img.onload = function() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
 
-          if (name) {
-            let position = textPositions[selectedTemplateId];
-            ctx.font = `${calculateFontSize(name.length)}px Arial`;
-            ctx.fillStyle = position.color;
-            ctx.textAlign = 'center';
-            ctx.fillText(name, position.x, position.y);
-          }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-          currentImageUrl = canvas.toDataURL('image/png');
-          previewImage.src = currentImageUrl;
-          previewImage.style.display = 'block';
+        if (name) {
+          const position = textPositions[selectedTemplateId];
+          ctx.font = `${calculateFontSize(name.length)}px Tajawal, Arial`;
+          ctx.fillStyle = position.color;
+          ctx.textAlign = 'center';
+          ctx.fillText(name, position.x, position.y);
+        }
 
-          // إظهار التعليمات والأزرار المناسبة لكل جهاز
-          if (isIOS()) {
-            document.getElementById('iosInstructions').style.display = 'block';
-            document.getElementById('iosSaveBtn').style.display = 'flex';
-            document.getElementById('downloadButton').style.display = 'flex';
+        const imageData = canvas.toDataURL('image/png');
+        previewImage.src = imageData;
+        previewImage.style.display = 'block';
+
+        if (download) {
+          const link = document.createElement('a');
+          link.download = `greeting-${new Date().getTime()}.png`;
+          link.href = imageData;
+          link.click();
+        }
+      } catch (error) {
+        console.error('Error generating greeting:', error);
+        alert('حدث خطأ أثناء إنشاء التهنئة. يرجى المحاولة مرة أخرى.');
+      }
+    }
+
+    async function saveToAlbum() {
+      const name = document.getElementById('name').value.trim();
+      const canvas = document.getElementById('canvas');
+
+      if (!selectedTemplate || !selectedTemplateId) {
+        alert("يرجى اختيار قالب تهنئة أولاً!");
+        return;
+      }
+
+      try {
+        await generateGreeting(false);
+        canvas.toBlob((blob) => {
+          const file = new File([blob], `greeting-${new Date().getTime()}.png`, { type: 'image/png' });
+
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({
+              files: [file],
+              title: 'تهنئة عيد الفطر',
+              text: 'تم حفظ تهنئة عيد الفطر في الألبوم!'
+            }).catch(error => {
+              console.error('Error saving to album:', error);
+              fallbackSaveToAlbum(file);
+            });
           } else {
-            document.getElementById('iosInstructions').style.display = 'none';
-            document.getElementById('iosSaveBtn').style.display = 'none';
-            document.getElementById('downloadButton').style.display = 'flex';
+            fallbackSaveToAlbum(file);
           }
-        };
-      } else {
-        alert("يرجى اختيار قالب تهنئة أولاً!");
+        }, 'image/png');
+      } catch (error) {
+        console.error('Error saving to album:', error);
+        alert('حدث خطأ أثناء حفظ الصورة. يرجى المحاولة مرة أخرى.');
       }
     }
 
-    function downloadImage() {
-      const name = document.getElementById('name').value;
-      if (!selectedTemplate) {
-        alert("يرجى اختيار قالب تهنئة أولاً!");
-        return;
-      }
-      if (!name) {
-        alert("يرجى إدخال اسمك أولاً!");
-        return;
-      }
-
+    function fallbackSaveToAlbum(file) {
+      const url = URL.createObjectURL(file);
       const link = document.createElement('a');
-      link.download = 'تهنئة-عيد-الفطر-' + name + '.png';
-      link.href = currentImageUrl;
-      document.body.appendChild(link);
+      link.href = url;
+      link.download = file.name;
       link.click();
-      document.body.removeChild(link);
-      
-      if (isIOS()) {
-        alert("تم تحميل الصورة إلى مجلد 'الملفات'. يمكنك نقلها إلى الألبوم من هناك.");
-      }
-    }
-
-    function showIOSSaveGuide() {
-      const previewImage = document.getElementById('previewImage');
-      previewImage.classList.add('zoomed');
-      
-      alert('الرجاء الضغط مطولاً على الصورة المعروضة ثم اختيار "حفظ الصورة"');
+      URL.revokeObjectURL(url);
     }
 
     async function shareOnWhatsApp() {
-      if (!currentImageUrl) {
-        alert("الرجاء إنشاء التهنئة أولاً");
-        return;
-      }
-
-      const name = document.getElementById('name').value || "مستخدم";
-      const message = `تهنئة عيد الفطر من ${name}`;
-
       try {
-        // تحويل data URL إلى blob
-        const response = await fetch(currentImageUrl);
-        const blob = await response.blob();
-        const file = new File([blob], "تهنئة_عيد_الفطر.png", { type: "image/png" });
+        await generateGreeting(false);
+        const canvas = document.getElementById('canvas');
 
-        // محاولة استخدام Web Share API إذا كان متاحاً
-        if (navigator.share && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: 'تهنئة عيد الفطر',
-            text: message
-          });
-        } else {
-          // إذا لم يكن Web Share متاحاً، نستخدم رابط واتساب
-          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
-          window.open(whatsappUrl, '_blank');
-        }
+        canvas.toBlob((blob) => {
+          const file = new File([blob], `greeting-${new Date().getTime()}.png`, { type: 'image/png' });
+          const message = 'أرسل لك تهنئة عيد الفطر! 🎉';
+
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({
+              files: [file],
+              text: message
+            }).catch(error => {
+              console.error('Error sharing:', error);
+              fallbackWhatsAppShare(message);
+            });
+          } else {
+            fallbackWhatsAppShare(message);
+          }
+        }, 'image/png');
       } catch (error) {
-        console.error('Error sharing:', error);
-        // طريقة بديلة إذا فشلت المشاركة
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n\n' + window.location.href)}`;
-        window.open(whatsappUrl, '_blank');
+        console.error('Error sharing on WhatsApp:', error);
+        alert('حدث خطأ أثناء المشاركة. يرجى المحاولة مرة أخرى.');
       }
     }
 
-    // تكبير/تصغير الصورة عند النقر (لأجهزة iOS)
-    document.getElementById('previewImage').addEventListener('click', function() {
-      if (isIOS()) {
-        this.classList.toggle('zoomed');
-      }
-    });
+    function fallbackWhatsAppShare(message) {
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
 
-    // إظهار التعليمات تلقائياً لأجهزة iOS عند التحميل
-    window.onload = function() {
-      if (isIOS()) {
-        document.getElementById('iosInstructions').style.display = 'block';
-      }
+    // Load font
+    const loadFont = async () => {
+      const font = new FontFace('Tajawal', 'url(https://fonts.gstatic.com/s/tajawal/v9/Iura6YBj_oIkrkoTkfxrggnW.woff2)');
+      await font.load();
+      document.fonts.add(font);
     };
+
+    loadFont();
   </script>
 </body>
 </html>
