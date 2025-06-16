@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاخبار - مركز الإبداع والابتكار للتدريب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../css/all-news.css">
+
+
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="mode-toggle">
+        <button id="langToggle" class="mode-toggle-btn" aria-label="تبديل اللغة"><i class="fas fa-globe"></i> English</button>
+        <button id="darkModeToggle" class="mode-toggle-btn" aria-label="تبديل الوضع الداكن"><i class="fas fa-moon"></i> Dark Mode</button>
+    </div>
+    <header class="text-white relative">
+        <div class="h1_1">
+            <h1 data-en="We Create Innovation and Innovate Solutions">نصنع الابداع و نبتكر الحلول</h1>
+        </div>
+        <div class="header-bg"></div>
+        <button class="hamburger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col items-center">
+                <div class="header-logos">
+                    <img src="../img/ig1.png" alt="شعار 1" class="logo-1">
+                </div>
+                <nav class="nav-links sticky-nav flex flex-wrap justify-center gap-6 md:gap-10">
+                    <a href="index.html" class="nav-link" data-en="Home">الرئيسية</a>
+                    <a href="index.html#about" class="nav-link" data-en="About Us">من نحن</a>
+                    <a href="index.html#news" class="nav-link" data-en="News">الأخبار</a>
+                    <a href="index.html#programs" class="nav-link active" data-en="Our Programs">برامجنا التدريبية</a>
+                    <a href="index.html#contact" class="nav-link" data-en="Contact Us">تواصل معنا</a>
+                </nav>
+                <div class="mobile-menu">
+                    <nav class="nav-links flex flex-col gap-4">
+                        <a href="index.html" class="nav-link" data-en="Home">الرئيسية</a>
+                        <a href="index.html#about" class="nav-link" data-en="About Us">من نحن</a>
+                        <a href="index.html#news" class="nav-link" data-en="News">الأخبار</a>
+                        <a href="index.html#programs" class="nav-link active" data-en="Our Programs">برامجنا التدريبية</a>
+                        <a href="index.html#contact" class="nav-link" data-en="Contact Us">تواصل معنا</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="container mx-auto px-6 py-4" aria-label="Breadcrumb">
+        <ol class="flex flex-wrap gap-2 text-gray-600 text-sm sm:text-base justify-center">
+            <li>
+                <a href="index.html" class="text-blue-600 hover:underline" data-en="Home">الرئيسية</a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li class="text-gray-600" data-en="Advertisements">الاخبار</li>
+        </ol>
+    </nav>
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <section class="card p-8">
+            <h2 class="text-3xl font-bold mb-6" data-en="Advertisements">الاخبار</h2>
+            <div class="ad-panels">
+                <div class="ad-panel">
+                    <img src="../img/ig3.jpg" alt="إعلان التوظيف الفعال لأدوات الذكاء الاصطناعي التوليدي">
+                    <div class="panel-overlay">
+                        <h3 class="text-2xl font-bold" data-en="Effective Use of Generative AI Tools">التوظيف الفعال لأدوات الذكاء الاصطناعي التوليدي</h3>
+                        <p data-en="Join our latest training workshop to learn about generative AI tools.">انضم إلى ورشة العمل التدريبية الأحدث للتعرف على أدوات الذكاء الاصطناعي التوليدي.</p>
+                    </div>
+                </div>
+                <div class="ad-panel">
+                    <img src="../img/ig4.jpg" alt="إعلان الاستعداد للاختبار التحصيلي">
+                    <div class="panel-overlay">
+                        <h3 class="text-2xl font-bold" data-en="Preparation for the Achievement Test">الاستعداد للاختبار التحصيلي</h3>
+                        <p data-en="Discover innovative solutions to prepare for the achievement test.">اكتشف حلولًا مبتكرة للاستعداد للاختبار التحصيلي.</p>
+                    </div>
+                </div>
+                <div class="ad-panel">
+                    <img src="../img/ig5.jpg" alt="إعلان مهارات الاستعداد للاختبار التحصيلي">
+                    <div class="panel-overlay">
+                        <h3 class="text-2xl font-bold" data-en="Skills for Achievement Test Preparation">مهارات الاستعداد للإختبار التحصيلي</h3>
+                        <p data-en="Boost your skills with our specialized programs for test preparation.">عزز مهاراتك مع برامجنا المتخصصة للتحضير للاختبار.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://api.whatsapp.com/send/?phone=966539873810" class="social-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@ebdaa.training" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.snapchat.com/add/ebdaatraining" class="social-icon" aria-label="سناب شات"><i class="fab fa-snapchat"></i></a>
+                <a href="https://x.com/ebdaa_training1" class="social-icon" aria-label="إكس تويتر"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ebdaa_training2/" class="social-icon" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-gray-400">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Address">العنوان</h4>
+                    <p data-en="Saudi Arabia - Al-Ahsa - Al-Mubarraz - Golden Belt - Ain Najm Street">المملكة العربية السعودية - الأحساء - المبرز - الحزام الذهبي - شارع عين نجم</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Phone">الهاتف</h4>
+                    <p>+966539873810</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Email">البريد الإلكتروني</h4>
+                    <p>ebdaa.training2030@gmail.com</p>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-xl font-bold text-white mb-4 text-center" data-en="Our Location">موقعنا</h3>
+                <div id="map" class="map-box mx-auto">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.849580912568!2d49.56046748498617!3d25.409845183797668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e3797ff55a738f9%3A0xed3bf94e5dd6a11d!2sAbdulmonem%20Alrashed%20Humanitarian%20Foundation!5e0!3m2!1sar!2ssa!4v1714820000000!5m2!1sar!2ssa" 
+                    width="300" height="297" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-8" data-en="© 2025 Creativity and Innovation Training Center. All rights reserved.">© 2025 مركز الإبداع والابتكار للتدريب. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script src="../js/all-news.js"></script>
+</body>
+</html>
