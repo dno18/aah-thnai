@@ -1,0 +1,38 @@
+[
+    {
+        "title": "مهارات وإستراتيجيات القدرات العامة",
+        "title_en": "General Abilities Skills",
+        "description": "تعلم استراتيجيات فعالة لحل المشكلات والتفكير النقدي.",
+        "description_en": "Learn effective strategies for problem-solving and critical thinking.",
+        "image": "https://i.postimg.cc/MHmmMT0W/1446-10-25-14-34-05-a4cf6874.jpg",
+        "registration_link": "https://docs.google.com/forms/d/e/1FAIpQLSfwe1l221q3-8Yl2exjqNLN6T7YlCKy7Cjl3NZ0CeoSX_Jnew/viewform?pli=1",
+        "location_link": "https://maps.app.goo.gl/UAhka8wejeG68jhz6?g_st=iwb"
+    },
+    {
+        "title": "الكابتن روبو",
+        "title_en": "Captain Robo",
+        "description": "رحلة تعليمية ممتعة للأطفال لتعلم الروبوتات.",
+        "description_en": "A fun educational journey for kids to learn robotics.",
+        "image": "https://i.postimg.cc/4yqXx6GW/1446-10-28-16-57-59-bb202ad7.jpg",
+        "registration_link": "https://qr.codes/lc9fPZ",
+        "location_link": null
+    },
+    {
+        "title": "البرمجة للمبتدئين",
+        "title_en": "Programming for Beginners",
+        "description": "دورة تمهيدية لتعليم أساسيات البرمجة باستخدام بايثون.",
+        "description_en": "An introductory course to learn the basics of programming using Python.",
+        "image": "https://via.placeholder.com/300x200?text=Programming",
+        "registration_link": "https://example.com/register-programming",
+        "location_link": "https://maps.app.goo.gl/example"
+    },
+    {
+        "title": "تصميم الابتكار",
+        "title_en": "Innovation Design",
+        "description": "تعلم كيفية تصميم حلول مبتكرة باستخدام منهجيات التفكير التصميمي.",
+        "description_en": "Learn how to design innovative solutions using design thinking methodologies.",
+        "image": "https://via.placeholder.com/300x200?text=Innovation",
+        "registration_link": "https://example.com/register-innovation",
+        "location_link": null
+    }
+]

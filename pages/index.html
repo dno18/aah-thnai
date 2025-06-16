@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز الإبداع والابتكار للتدريب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body class="min-h-screen flex flex-col bg-white">
+    <div class="mode-toggle">
+        <button id="langToggle" class="mode-toggle-btn" aria-label="تبديل اللغة"><i class="fas fa-globe"></i> English</button>
+        <button id="darkModeToggle" class="mode-toggle-btn" aria-label="تبديل الوضع الداكن"><i class="fas fa-moon"></i> Dark Mode</button>
+    </div>
+    <header class="bg-transparent relative z-20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="header-logos">
+                    <img src="../img/ig1.png" alt="شعار 1" class="logo-1">
+                </div>
+                <button class="hamburger md:hidden" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="sticky-nav hidden md:flex">
+                    <div class="nav-links flex flex-wrap justify-center items-center">
+                        <a href="#about" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
+                        <a href="#programs" class="nav-link" data-ar="برامجنا التدريبية" data-en="Our Programs">برامجنا التدريبية</a>
+                        <a href="#news" class="nav-link" data-ar="الأخبار الحصرية" data-en="Exclusive News">الأخبار الحصرية</a>
+                        <a href="#ads" class="nav-link" data-ar="الإعلانات" data-en="Advertisements">الإعلانات</a>
+                        <a href="#videos" class="nav-link" data-ar="فيديوهاتنا" data-en="Our Videos">فيديوهاتنا</a>
+                        <a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <nav class="fixed-nav z-30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="sticky-header-logos">
+                    <img src="../img/ig1.png" alt="شعار الشريط" class="logo-1">
+                </div>
+                <button class="hamburger md:hidden" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links flex flex-wrap justify-center items-center hidden md:flex">
+                    <a href="#about" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
+                    <a href="#programs" class="nav-link" data-ar="برامجنا التدريبية" data-en="Our Programs">برامجنا التدريبية</a>
+                    <a href="#news" class="nav-link" data-ar="الأخبار الحصرية" data-en="Exclusive News">الأخبار الحصرية</a>
+                    <a href="#ads" class="nav-link" data-ar="الإعلانات" data-en="Advertisements">الإعلانات</a>
+                    <a href="#videos" class="nav-link" data-ar="فيديوهاتنا" data-en="Our Videos">فيديوهاتنا</a>
+                    <a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu hidden md:hidden">
+        <div class="nav-links flex flex-col items-center gap-4 py-4">
+            <a href="#about" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
+            <a href="#programs" class="nav-link" data-ar="برامجنا التدريبية" data-en="Our Programs">برامجنا التدريبية</a>
+            <a href="#news" class="nav-link" data-ar="الأخبار الحصرية" data-en="Exclusive News">الأخبار الحصرية</a>
+            <a href="#ads" class="nav-link" data-ar="الإعلانات" data-en="Advertisements">الإعلانات</a>
+            <a href="#videos" class="nav-link" data-ar="فيديوهاتنا" data-en="Our Videos">فيديوهاتنا</a>
+            <a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+        </div>
+    </div>
+    <div class="video-background">
+        <video autoplay muted loop playsinline class="video-iframe">
+            <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+            <source src="b.mp4" type="video/mp4">
+        </video>
+    </div>
+    <main id="home" class="flex-grow relative z-10">
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-item">
+                    <h3 data-en="Who We Are"><i class="fas fa-users mr-2"></i>من نحن</h3>
+                    <p data-en="The Creativity and Innovation Training Center is a professionally accredited center by the Technical and Vocational Training Corporation under license number: (2245187255061812). Based at the Abdulmonem Al-Rashed Humanitarian Foundation in Al-Ahsa, we empower individuals, companies, and institutions to develop their creative and innovative capabilities through knowledge, tools, and techniques that stimulate creative thinking, innovative problem-solving, and out-of-the-box ideas.">
+                        مركز الإبداع والابتكار للتدريب هو مركز مهني معتمد من المؤسسة العامة للتدريب التقني والمهني بترخيص رقم: (2245187255061812). ومقره مؤسسة عبدالمنعم الراشد الإنسانية بالأحساء. يهدف المركز إلى تمكين الأفراد والشركات والمؤسسات من تطوير قدراتهم الإبداعية والابتكارية من خلال تزويدهم بالمعرفة والأدوات والتقنيات اللازمة لتحفيز التفكير الإبداعي، وحل المشكلات بطرق مبتكرة، والتفكير خارج الصندوق.
+                    </p>
+                </div>
+                <div class="about-item">
+                    <h3 data-en="Our Vision"><i class="fas fa-eye mr-2"></i>رؤيتنا</h3>
+                    <p data-en="Leadership in specialized training in creativity and innovation to achieve a sustainable impact that enhances professional and institutional progress.">
+                        الريادة في التدريب النوعي بمجالي الإبداع والابتكار لتحقيق أثر مستدام يعزز التقدم المهني والمؤسسي.
+                    </p>
+                </div>
+                <div class="about-item">
+                    <h3 data-en="Our Mission"><i class="fas fa-bullseye mr-2"></i>رسالتنا</h3>
+                    <p data-en="Delivering advanced, specialized training programs that integrate practical and theoretical aspects to develop skills and competencies, focusing on fostering a culture of innovation and applying creative solutions to contemporary challenges.">
+                        تقديم برامج تدريبية نوعية متقدمة تدمج بين الجانب العملي والنظري لتطوير المهارات والكفاءات، مع التركيز على تعزيز ثقافة الابتكار وتطبيق الحلول الإبداعية لمواجهة التحديات المعاصرة.
+                    </p>
+                </div>
+                <div class="about-item">
+                    <h3 data-en="Our Values"><i class="fas fa-gem mr-2"></i>قيمنا</h3>
+                    <ul>
+                        <li data-en="Innovation: Encouraging creative thinking and providing innovative solutions to challenges.">الابتكار: تشجيع التفكير الإبداعي وتقديم حلول مبتكرة للتحديات.</li>
+                        <li data-en="Excellence and Quality: Commitment to delivering training programs of the highest quality.">التميز والجودة: الالتزام بتقديم برامج تدريبية على أعلى مستوى من الجودة.</li>
+                        <li data-en="Sustainability: Promoting skills that support sustainable development at personal and institutional levels.">الاستدامة: تعزيز مهارات تدعم التطور المستدام على المستويات الشخصية والمؤسسية.</li>
+                        <li data-en="Partnership and Collaboration: Enhancing cooperation with academic and technical institutions to support innovation and continuous learning.">الشراكة والتعاون: تعزيز العمل مع المؤسسات الأكاديمية والتقنية لدعم الابتكار والتعلم المستمر.</li>
+                        <li data-en="Continuous Development: Striving to update programs and develop skills in line with market requirements.">التطور المستمر: السعي لتحديث البرامج وتطوير المهارات بما يتماشى مع متطلبات السوق.</li>
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h3 data-en="Our Goals"><i class="fas fa-flag-checkered mr-2"></i>أهدافنا</h3>
+                    <ol>
+                        <li data-en="Build strategic partnerships with local and international entities to enhance content quality and leverage expertise in delivering innovative programs.">بناء شراكات استراتيجية مع جهات محلية ودولية لتعزيز جودة المحتوى والاستفادة من ذوي الخبرات في تقديم البرامج النوعية المبتكرة.</li>
+                        <li data-en="Provide high-quality training based on creativity and innovation for all community segments, meeting their aspirations in various fields.">تقديم تدريب عالي الجودة قائم على الإبداع والابتكار لجميع فئات المجتمع تلبي طموحاتهم في شتى المجالات.</li>
+                        <li data-en="Create an interactive, innovative learning environment that stimulates critical thinking and problem-solving to foster a creative community.">توفير بيئة تعليمية تفاعلية مبتكرة تحفز على التفكير النقدي وحل الممشكلات من أجل الخروج بمجتمع ابداعي.</li>
+                        <li data-en="Provide advanced educational resources that enhance practical expertise and keep pace with advancements in modern technologies supporting training.">توفير موارد تعليمية متطورة تسهم في تحسين مستوى الخبرات العملية وتواكب التطور المستمر في التقنيات الحديثة التي تدعم التدريب.</li>
+                        <li data-en="Design diverse training programs that support creativity and innovation, tailored to individual needs, labor market requirements, and cognitive development.">تصميم برامج تدريبية متنوعة تدعم الإبداع والابتكار والتي تتناسب مع احتياجات الأفراد ومتطلبات سوق العمل والتطور المعرفي في مجالات مختلفة.</li>
+                        <li data-en="Achieve sustainable advanced training by developing programs that align with modern trends.">تحقيق استدامة التدريب المتقدم من خلال تطوير برامج تدريبية تواكب التوجهات الحديثة.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section id="programs" class="programs-section card p-8">
+            <h2 class="section-title text-3xl font-bold mb-6 text-center" data-en="Our Training Programs">
+                <i class="fas fa-graduation-cap mr-2"></i>برامجنا التدريبية
+            </h2>
+            <div class="program-list">
+                <div class="program-item dynamic-card">
+                    <div class="program-media">
+                        <img src="../img/ig2.jpg" alt="" class="program-image parallax-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="program-content slide-in-content">
+                        <h3 class="text-xl font-bold" data-en="General Abilities Skills">مهارات وإستراتيجيات القدرات العامة</h3>
+                        <p data-en="Learn effective strategies for problem-solving and critical thinking.">
+                            تعلم استراتيجيات فعالة لحل المشكلات والتفكير النقدي.
+                        </p>
+                        <div class="program-actions">
+                            <div class="flex gap-4 justify-center">
+                                <a href="https://accounts.google.com/v3/signin/confirmidentifier" target="_blank" class="gradient-btn" data-en="Register Now">
+                                    سجل الآن 
+                                    <i class="fas fa-arrow-left ml-2"></i>
+                                </a>
+                                <a href="https://maps.app.goo.gl/UAhka8wejeG68jhz6?g_st=iwb" target="_blank" class="outline-btn" data-en="Course Location">
+                                    موقع الدورة
+                                    <i class="fas fa-map-marker-alt ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-item dynamic-card reversed">
+                    <div class="program-media">
+                        <img src="../img/ig11.jpg" alt="" class="program-image parallax-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="program-content slide-in-content">
+                        <h3 class="text-xl font-bold" data-en="Data analysis and report writing using Excel">تحليل البينات وكتابة التقارير باستخدام الاكسل </h3>
+                        <p data-en="Mastering the use of descriptive, predictive, and prescriptive data analysis, identifying data types and methods of analyzing them, preparing reports, and many other topics..">
+                        اتقان استخدام التحليل الوصفي و التنبؤي والتوجيهي للبينات و التعرف على انواع البينات وطرق تحليها و اعداد تقارير والعديد  من المحاور 
+                        </p>
+                        <div class="program-actions">
+                            <div class="flex gap-4 justify-center">
+                                <a href="https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://docs.google.com/forms/d/1tie3XLJLjYwTDywcZ99SHE0j4JDM1bPgoAC1xDQ8KUI/viewform?edit_requested%3Dtrue%26pli%3D1&followup=https://docs.google.com/forms/d/1tie3XLJLjYwTDywcZ99SHE0j4JDM1bPgoAC1xDQ8KUI/viewform?edit_requested%3Dtrue%26pli%3D1&ltmpl=forms&osid=1&passive=1209600&service=wise&ifkv=AdBytiPwlexgSq26eFo-bIC0G4Pcimq2q2l0Ut2Km9jvNpbiCzRfkpTHnb846ci4sjGWEhkQS5ctrQ" target="_blank" class="gradient-btn" data-en="Register Now">
+                                     سجل الان 
+                                    <i class="fas fa-arrow-left ml-2"></i>
+                                </a>
+                                <a href="https://maps.app.goo.gl/UAhka8wejeG68jhz6?g_st=iwb" class="outline-btn" data-en="Course Location">
+                                    موقع الدورة
+                                    <i class="fas fa-map-marker-alt ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <a href="all-programs.html" class="read-more-btn inline-block" data-en="More">المزيد</a>
+            </div>
+
+        </section>
+        <section id="news" class="news-section card p-8">
+            <div class="news-container flex">
+                <div class="news-left w-1/2 pr-4">
+                    <h2 class="text-3xl font-bold mb-4 text-center" data-en="Exclusive News" data-ar="الأخبار الحصرية">
+                        <i class="fas fa-newspaper mr-2"></i>الأخبار الحصرية
+                    </h2>
+                    <div class="exclusive-carousel image-carousel vertical-carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/ig3.jpg" alt="خبر حصري 1" class="carousel-img" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/ig4.jpg" alt="خبر حصري 2" class="carousel-img" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/ig5.jpg" alt="خبر حصري 3" class="carousel-img" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                    <div class="news-controls">
+                        <button class="prev-btn"><i class="fas fa-chevron-right"></i></button>
+                        <button class="next-btn"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                    <div class="text-center mt-8">
+                        <a href="all-news.html" class="read-more-btn gradient-btn inline-block" data-en="More">المزيد</a>
+                    </div>
+
+                </div>
+                <div id="ads" class="news-right w-1/2 pl-4">
+                    <h2 class="text-3xl font-bold mb-4 text-center" data-en="Advertisements" data-ar="الإعلانات">
+                        <i class="fas fa-bullhorn mr-2"></i>الإعلانات
+                    </h2>
+                    <div class="ads-carousel image-carousel vertical-carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/ig2.jpg" alt="إعلان 1" class="carousel-img" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/ig11.jpg" alt="إعلان 2" class="carousel-img" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                    <div class="ads-controls">
+                        <button class="prev-btn"><i class="fas fa-chevron-right"></i></button>
+                        <button class="next-btn"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                    <div class="text-center mt-8">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="videos" class="videos-section card p-8">
+            <div class="videos-container">
+                <div class="videos-right w-full">
+                    <h2 class="text-3xl font-bold mb-4 text-center section-title" data-en="Our Videos" data-ar="فيديوهاتنا">
+                        <i class="fas fa-video mr-2"></i>فيديوهاتنا
+                    </h2>
+                    <div class="videos-carousel image-carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <iframe src="https://www.youtube.com/embed/sZ6iQaw0GIQ?autoplay=1&mute=1&loop=1&playlist=sZ6iQaw0GIQ" title="فيديو 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 1</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/CPNkmxt_GV8?autoplay=1&mute=1&loop=1&playlist=CPNkmxt_GV8" title="فيديو 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 2</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/hHYu-R_KyuA?autoplay=1&mute=1&loop=1&playlist=hHYu-R_KyuA" title="فيديو 3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 3</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/tTyEggpFcLI?autoplay=1&mute=1&loop=1&playlist=tTyEggpFcLI" title="فيديو 4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 4</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/s3Ec4JhG3oE?autoplay=1&mute=1&loop=1&playlist=s3Ec4JhG3oE" title="فيديو 5" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 5</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/4F5mmyzLdLA?autoplay=1&mute=1&loop=1&playlist=4F5mmyzLdLA" title="فيديو 6 Vandana Shiva" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 6 Vandana Shiva</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/vZSbg_WJLQo?autoplay=1&mute=1&loop=1&playlist=vZSbg_WJLQo" title="فيديو 7" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 7</div>
+                            </div>
+                            <div class="carousel-item">
+                                <iframe src="https://www.youtube.com/embed/m6P3psZ_T2I?autoplay=1&mute=1&loop=1&playlist=m6P3psZ_T2I" title="فيديو 8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="carousel-img"></iframe>
+                                <div class="video-title">فيديو 8</div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators"></div>
+                        <button class="carousel-prev"><i class="fas fa-chevron-right"></i></button>
+                        <button class="carousel-next"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                    <div class="video-controls">
+                        <button class="prev-btn"><i class="fas fa-chevron-right"></i></button>
+                        <button class="next-btn"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="links" class="links-section card p-8">
+            <h2 class="text-3xl font-bold mb-4 text-center section-title" data-en="Important Links" data-ar="روابط مهمة">
+                <i class="fas fa-link mr-2"></i>روابط مهمة
+            </h2>
+            <div class="links-container">
+                <div class="link-card">
+                    <img src="https://i.postimg.cc/8CLxwrn5/NHIJ1-Lp8i9-G4x-Nqy7-XNa.png" alt="شعار مؤسسة عبدالمنعم" class="link-logo">
+                    <h4 class="text-lg font-bold" data-en="Abdulmonem Humanitarian Foundation">مؤسسة عبدالمنعم الإنسانية</h4>
+                    <a href="https://aahf.sa/ar" target="_blank" class="link-btn" data-en="Visit">زيارة</a>
+                </div>
+                <div class="link-card">
+                    <img src="https://zadk.com.sa/wp-content/uploads/2024/04/technical.png" alt="شعار المعهد التقني" class="link-logo">
+                    <h4 class="text-lg font-bold" data-en="Technical and Vocational Training Corporation">المؤسسه العامه للتدريب المهني والتقني</h4>
+                    <a href="https://tvtc.gov.sa/ar/Pages/default1.aspx" target="_blank" class="link-btn" data-en="Visit">زيارة</a>
+                </div>
+                <div class="link-card">
+                    <img src="https://i.postimg.cc/q7Vh393K/OIP.png" alt="شعار منار" class="link-logo">
+                    <h4 class="text-lg font-bold" data-en="Manar Platform">منصة منار</h4>
+                    <a href="https://mnar.sa/" target="_blank" class="link-btn" data-en="Visit">زيارة</a>
+                </div>
+                <div class="link-card">
+                    <img src="https://www.ithra.com/application/files/cache/thumbnails/d21fb9f1b0bbf31c67db9aa46da99f74.png" alt="شعار فاب لاب" class="link-logo">
+                    <h4 class="text-lg font-bold" data-en="FabLab Saudi">فاب لاب الاحساء</h4>
+                    <a href="https://fablabahsa.com/" target="_blank" class="link-btn" data-en="Visit">زيارة</a>
+                </div>
+            </div>
+        </section>
+        <section id="statistics" class="statistics-section card p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center" data-en="Our Statistics" data-ar="إحصائياتنا">
+                <i class="fas fa-chart-bar mr-2"></i>إحصائياتنا
+            </h2>
+            <div class="statistics-container">
+                <div class="stat-card">
+                    <i class="fas fa-users fa-2x"></i>
+                    <h3 id="visitor-count" data-en="0" data-ar="0">0</h3>
+                    <p data-en="Number of Visitors" data-ar="عدد الزوار">عدد الزوار</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-book fa-2x"></i>
+                    <h3 id="program-count" data-en="0" data-ar="0">0</h3>
+                    <p data-en="Training Programs" data-ar="البرامج التدريبية">البرامج التدريبية</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" class="bg-gray-900 text-white py-12 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://api.whatsapp.com/send/?phone=966539873810" class="social-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@ebdaa.training" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.snapchat.com/add/ebdaatraining" class="social-icon" aria-label="سناب شات"><i class="fab fa-snapchat"></i></a>
+                <a href="https://x.com/ebdaa_training1" class="social-icon" aria-label="إكس تويتر"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ebdaa_training2/" class="social-icon" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-gray-400">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Address">العنوان</h4>
+                    <p data-en="Saudi Arabia - Al-Ahsa - Al-Mubarraz - Golden Belt - Ain Najm Street">المملكة العربية السعودية - الأحساء - المبرز - الحزام الذهبي - شارع عين نجم</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Phone">الهاتف</h4>
+                    <p>966539873810+</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-2" data-en="Email">البريد الإلكتروني</h4>
+                    <p>ebdaa.training2030@gmail.com</p>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-xl font-bold text-white mb-4 text-center" data-en="Our Location">موقعنا</h3>
+                <div id="map" class="map-box mx-auto">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.849580912568!2d49.56046748498617!3d25.409845183797668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e3797ff55a738f9%3A0xed3bf94e5dd6a11d!2sAbdulmonem%20Alrashed%20Humanitarian%20Foundation!5e0!3m2!1sar!2ssa!4v1714820000000!5m2!1sar!2ssa" 
+                    width="100%" height="250" style="border:0; max-width: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-8" data-en="© 2025 Creativity and Innovation Training Center. All rights reserved.">© 2025 مركز الإبداع والابتكار للتدريب. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script src="../js/index.js"></script>
+</body>
+</html>
