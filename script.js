@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', function() {
     // Star Background Animation for Main Page
     const starCanvas = document.getElementById('star-canvas');
@@ -1029,4 +1028,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Fab Lab website initialized successfully');
 });
-</script>
+
