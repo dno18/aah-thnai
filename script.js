@@ -1,3 +1,4 @@
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     // Star Background Animation for Main Page
     const starCanvas = document.getElementById('star-canvas');
@@ -731,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="form-group">
                         <label for="regEmail">البريد الإلكتروني</label>
-                        <input type="email" id="regEmail" placeholder="أدخل بريدك الإلكتروني" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" title="يجب أن يكون البريد الإلكتروني صالحًا" required>
+                        <input type="email" id="regEmail" placeholder="أدخل بريدك الإلكتروني" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$" title="يجب أن يكون البريد الإلكتروني صالحًا" required>
                     </div>
                     <div class="form-group">
                         <label for="regPassword">كلمة المرور</label>
@@ -893,18 +894,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // User Greeting (Assuming Django template variable user.username)
-    const userGreeting = document.createElement('span');
-    userGreeting.className = 'user-greeting';
-    userGreeting.style.color = '#FFC107';
-    userGreeting.style.marginLeft = '1rem';
-    const username = '{{ user.username }}' || 'Guest'; // Fallback for demo
-    
-        if (controls) {
-            controls.appendChild(userGreeting);
-        }
-    }
-
     // Mobile Dropdown Toggle
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
@@ -1040,5 +1029,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Fab Lab website initialized successfully');
 });
-
-
+</script>
