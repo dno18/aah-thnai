@@ -1,4 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.createElement('button');
+    mobileMenuToggle.className = 'mobile-menu-toggle';
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    const header = document.querySelector('.header');
+    const nav = document.querySelector('.nav');
+    
+    if (header && nav) {
+        header.insertBefore(mobileMenuToggle, nav);
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            mobileMenuToggle.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    }
+
+    // Mobile Dropdown Toggle
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+
     // Star Background Animation for Main Page
     const starCanvas = document.getElementById('star-canvas');
     if (starCanvas) {
@@ -11,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             starCanvas.width = window.innerWidth;
             starCanvas.height = window.innerHeight;
             starCanvas.style.position = 'fixed';
-            starCanvas.style.top = '100vh'; // Start after video
+            starCanvas.style.top = '100vh';
             starCanvas.style.left = '0';
             starCanvas.style.zIndex = '-1';
             starCanvas.style.pointerEvents = 'none';
@@ -360,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const indicators = document.querySelectorAll('.indicator');
     
     if (carousel && prevBtn && nextBtn) {
-        const itemWidth = carousel.querySelector('.workshop-item').offsetWidth + 30; // width + gap
+        const itemWidth = carousel.querySelector('.workshop-item').offsetWidth + 30;
         
         prevBtn.addEventListener('click', () => {
             carousel.scrollBy({
@@ -485,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Video loading error, falling back to static image');
             video.style.display = 'none';
             const fallback = document.createElement('div');
-            fallback.style.backgroundImage = 'ur[](https://placehold.co/1920x1080/1d1c0a/9C27B0?text=FabLab)';
+            fallback.style.backgroundImage = 'url(https://placehold.co/1920x1080/1d1c0a/9C27B0?text=FabLab)';
             fallback.style.position = 'absolute';
             fallback.style.top = '0';
             fallback.style.left = '0';
@@ -872,7 +916,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     loginModal.remove();
                     showSuccessModal();
                     if (loginButton) {
-                        loginButton.textContent = 'مرحبًا'; // Simulate user greeting
+                        loginButton.textContent = 'مرحبًا';
                     }
                 }
             });
@@ -889,23 +933,9 @@ document.addEventListener('DOMContentLoaded', function() {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
             console.log('User logged out');
-            window.location.reload(); // Simulate logout
+            window.location.reload();
         });
     }
-
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (window.innerWidth <= 768) {
-                    dropdown.classList.toggle('active');
-                }
-            });
-        }
-    });
 
     // Chatbot Functionality with Hugging Face
     let conversationHistory = [];
@@ -1028,4 +1058,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Fab Lab website initialized successfully');
 });
-
