@@ -2333,28 +2333,28 @@ span {
     }
     
     .nav {
-        order: 3;
+        position: fixed;
+        top: 0;
+        right: -100%;
         width: 100%;
-        margin-top: 1rem;
-        display: none;
+        height: 100vh;
+        background: rgba(10, 15, 29, 0.98);
+        backdrop-filter: blur(15px);
+        padding: 2rem 1rem;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
     }
     
     .nav.active {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 15, 29, 0.95);
-        backdrop-filter: blur(15px);
-        padding: 1rem 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        right: 0;
     }
     
     .nav ul {
         flex-direction: column;
         gap: 0;
         padding: 0;
+        margin-top: 3rem;
     }
     
     .nav li {
@@ -2366,6 +2366,7 @@ span {
         display: block;
         padding: 1rem 1.5rem;
         width: 100%;
+        font-size: 1.1rem;
     }
     
     .dropdown-menu {
@@ -2376,6 +2377,7 @@ span {
         width: 100%;
         display: none;
         padding: 0;
+        margin: 0;
     }
     
     .dropdown.active .dropdown-menu {
@@ -2390,6 +2392,7 @@ span {
     .dropdown-menu a {
         padding: 0.8rem 2.5rem;
         border-left: 3px solid transparent;
+        font-size: 1rem;
     }
     
     .dropdown-menu a:hover {
@@ -2431,10 +2434,24 @@ span {
     cursor: pointer;
     padding: 0.5rem;
     transition: all 0.3s ease;
+    z-index: 1002;
 }
 
 .mobile-menu-toggle:hover {
     color: #FFC107;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1003;
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -2816,4 +2833,20 @@ span {
     .main-content {
         overflow-x: hidden;
     }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
 }
