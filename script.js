@@ -899,9 +899,7 @@ document.addEventListener('DOMContentLoaded', function() {
     userGreeting.style.color = '#FFC107';
     userGreeting.style.marginLeft = '1rem';
     const username = '{{ user.username }}' || 'Guest'; // Fallback for demo
-    if (username !== 'Guest') {
-        userGreeting.textContent = `مرحبًا، ${username}`;
-        const controls = document.querySelector('.controls');
+    
         if (controls) {
             controls.appendChild(userGreeting);
         }
@@ -1042,4 +1040,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Fab Lab website initialized successfully');
 });
+
 
