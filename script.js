@@ -1,59 +1,71 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+    // Mobile Menu Functionality
     const mobileMenuToggle = document.createElement('button');
     mobileMenuToggle.className = 'mobile-menu-toggle';
     mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    const mobileMenuClose = document.createElement('button');
+    mobileMenuClose.className = 'mobile-menu-close';
+    mobileMenuClose.innerHTML = '<i class="fas fa-times"></i>';
+    mobileMenuClose.style.display = 'none';
+    
+    const mobileMenuOverlay = document.createElement('div');
+    mobileMenuOverlay.className = 'mobile-menu-overlay';
     
     const header = document.querySelector('.header');
     const nav = document.querySelector('.nav');
     
     if (header && nav) {
-        header.insertBefore(mobileMenuToggle, nav);
+        header.appendChild(mobileMenuToggle);
+        nav.appendChild(mobileMenuClose);
+        document.body.appendChild(mobileMenuOverlay);
         
+        // Toggle mobile menu
         mobileMenuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            mobileMenuToggle.innerHTML = nav.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            nav.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuClose.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            nav.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuClose.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Mobile dropdown toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }
         });
     }
-
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdown.classList.toggle('active');
-                    
-                    // Close other dropdowns
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                nav.classList.remove('active');
-                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-            
-            dropdowns.forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        }
-    });
 
     // Star Background Animation for Main Page
     const starCanvas = document.getElementById('star-canvas');
