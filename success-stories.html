@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص النجاح - فاب لاب الأحساء</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/success-stories.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32/9C27B0/FFFFFF?text=ف" type="image/x-icon">
+</head>
+<body>
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+    <!-- Header -->
+    <header class="header">
+       <div class="logo">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+             <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                         <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                         <li><a href="{% url 'services' %}">خدماتنا</a></li>
+                                </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="#success">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            <a href="{% url 'register_view' %}" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+            <a href="{% url 'login_view' %}" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+       
+        <!-- Hero Section -->
+        <section class="success-hero">
+            <div class="hero-content">
+                <h1 class="fade-in">قصص النجاح</h1>
+                <p class="fade-in">اكتشف قصصًا ملهمة لمبتكرين ومبدعين من مجتمع فاب لاب الأحساء</p>
+                <div class="hero-stats fade-in">
+                    <div class="stat-item">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Success Stories Section -->
+            <div class="container">
+                <div class="stories-grid">
+                    <!-- Featured Story -->
+                    <div class="featured-story fade-in">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="قصة مميزة">
+                        </div>
+                        <div class="featured-content">
+                            <span class="featured-badge">قصة الشهر</span>
+                            <h3>من فكرة بسيطة إلى مشروع وطني</h3>
+                            <p>تمكن فريق من الشباب الطموح من تطوير نظام ذكي لترشيد استهلاك المياه باستخدام تقنيات إنترنت الأشياء، وحصل المشروع على دعم حكومي ليصبح مشروعًا وطنيًا يساهم في الحفاظ على الموارد المائية.</p>
+                            <a href="#" class="story-read-more">قراءة القصة الكاملة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 1 -->
+                    <div class="story-card fade-in" data-category="technology">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">التكنولوجيا</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>تطوير روبوت مساعد للمكفوفين</h3>
+                            <p class="story-excerpt">تمكن فريق من المبتكرين الشباب في فاب لاب الأحساء من تطوير روبوت مساعد للمكفوفين باستخدام تقنيات الذكاء الاصطناعي والطباعة ثلاثية الأبعاد.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">أ</div>
+                                    <span>أحمد السعيد</span>
+                                </div>
+                                <span class="story-date">يناير 2024</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 2 -->
+                    <div class="story-card fade-in" data-category="design">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">التصميم</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>تصميم أثاث مستدام من مواد معاد تدويرها</h3>
+                            <p class="story-excerpt">مصممة شابة استطاعت تحويل النفايات البلاستيكية إلى قطع أثاث فنية مستدامة باستخدام آلات القطع بالليزر في فاب لاب الأحساء.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">ف</div>
+                                    <span>فاطمة العلي</span>
+                                </div>
+                                <span class="story-date">ديسمبر 2023</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 3 -->
+                    <div class="story-card fade-in" data-category="entrepreneurship">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">ريادة الأعمال</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>إطلاق مشروع تجاري ناجح من فاب لاب</h3>
+                            <p class="story-excerpt">شاب طموح حول فكرته البسيطة إلى مشروع تجاري ناجح بعد تطوير النموذج الأولي في فاب لاب والحصول على الدعم اللازم.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">م</div>
+                                    <span>محمد الناصر</span>
+                                </div>
+                                <span class="story-date">نوفمبر 2023</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 4 -->
+                    <div class="story-card fade-in" data-category="innovation">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">الابتكار</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>ابتكار جهاز لمراقبة جودة المياه</h3>
+                            <p class="story-excerpt">مبتكر شاب صمم جهازاً ذكياً لمراقبة جودة المياه باستخدام أجهزة الاستشعار والبرمجة، وحصل على براءة اختراع لفكرته المبتكرة.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">خ</div>
+                                    <span>خالد القحطاني</span>
+                                </div>
+                                <span class="story-date">أكتوبر 2023</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 5 -->
+                    <div class="story-card fade-in" data-category="technology">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">التكنولوجيا</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>تطوير تطبيق للتعليم التفاعلي</h3>
+                            <p class="story-excerpt">فريق من المبرمجين طور تطبيقاً تفاعلياً لتعليم البرمجة للأطفال باستخدام تقنيات الواقع المعزز والالعاب التعليمية.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">ن</div>
+                                    <span>نورة الشمري</span>
+                                </div>
+                                <span class="story-date">سبتمبر 2023</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                   
+                    <!-- Story 6 -->
+                    <div class="story-card fade-in" data-category="design">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="قصة نجاح">
+                            <div class="story-category">التصميم</div>
+                        </div>
+                        <div class="story-content">
+                            <h3>تصميم أطراف صناعية بتكلفة منخفضة</h3>
+                            <p class="story-excerpt">مصمم مبتكر استخدم تقنيات الطباعة ثلاثية الأبعاد في فاب لاب لتصميم أطراف صناعية بتكلفة منخفضة تناسب ذوي الدخل المحدود.</p>
+                            <div class="story-meta">
+                                <div class="story-author">
+                                    <div class="author-avatar">س</div>
+                                    <span>سارة الأحمد</span>
+                                </div>
+                                <span class="story-date">أغسطس 2023</span>
+                            </div>
+                            <a href="#" class="story-read-more">قراءة القصة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="load-more-container">
+                    <button class="load-more-btn">تحميل المزيد من القصص</button>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title fade-in">ماذا قالوا عنا</h2>
+                <p class="section-subtitle fade-in">آراء وتجارب حقيقية من مجتمع فاب لاب الأحساء الذين حولوا أحلامهم إلى واقع ملموس</p>
+               
+                <div class="testimonials-slider">
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"فاب لاب الأحساء كان البوابة التي فتحت لي عالم الابتكار والتكنولوجيا. من خلال الدعم والتوجيه الذي تلقيت، استطاعت تحويل فكرتي إلى مشروع حقيقي."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="المستخدم">
+                            <div class="author-info">
+                                <h4>أحمد السعيد</h4>
+                                <p>مبتكر وريادي أعمال</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"لم أكن أتخيل أنني سأتمكن من تصميم وطباعة نماذجي ثلاثية الأبعاد بنفسي. فاب لاب وفر لي كل الأدوات والمعرفة التي احتجتها لتحقيق حلمي."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="المستخدم">
+                            <div class="author-info">
+                                <h4>فاطمة العلي</h4>
+                                <p>مصممة ومنتجة</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <p>"الدورات والورش التدريبية في فاب لاب كانت نقطة التحول في مسيرتي المهنية. تعلمت مهارات جديدة واستطعت تطبيقها مباشرة في مشاريعي."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="المستخدم">
+                            <div class="author-info">
+                                <h4>محمد الناصر</h4>
+                                <p>مطور برمجيات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Share Your Story Section -->
+        <section class="share-story-section">
+            <div class="container">
+                <div class="share-story-content fade-in">
+                    <h2>شاركنا قصتك</h2>
+                    <p>هل لديك قصة نجاح ملهمة مع فاب لاب الأحساء؟ نحن نرغب في مشاركتها مع مجتمعنا الملهم ودعم رحلتك نحو النجاح</p>
+                    <a href="#" class="share-story-btn">شارك قصتك <i class="fas fa-pen"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+            <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+               
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4>المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa"
+                            allowfullscreen="" loading="lazy"
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+            </div>
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+    <!-- Chatbot Widget -->
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+        <button class="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+        <button id="chatbot-send">إرسال</button>
+    </div>
+</div>
+<button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+<script src="{% static 'users/js/success-stories.js' %}"></script>
+    <script src="{% static 'users/js/auth.js' %}"></script>
+</body>
+</html>

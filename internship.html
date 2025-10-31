@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التدريب التعاوني - فاب لاب الأحساء</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/internship.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{% static 'users/images/fablab-logo.png' %}" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                         <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                         <li><a href="{% url 'services' %}">خدماتنا</a></li>               
+                    </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
+                        <li><a href="#internship">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            <a href="{% url 'register_view' %}" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+            <a href="{% url 'login_view' %}" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+        
+        <!-- Internship Hero Section -->
+        <section class="internship-hero">
+            <div class="container">
+                <h1 class="hero-title">برنامج التدريب التعاوني</h1>
+                <p class="hero-subtitle">اكتسب خبرة عملية حقيقية في بيئة إبداعية واحترافية</p>
+                <div class="hero-stats">
+        </section>
+
+        <!-- About Internship Section -->
+        <section class="about-internship">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">عن برنامج التدريب التعاوني</h2>
+                        <p class="about-description">
+                            يهدف برنامج التدريب التعاوني في فاب لاب الأحساء إلى ربط الجانب النظري الأكاديمي بالجانب العملي، 
+                            حيث نوفر للطلاب بيئة تدريبية متكاملة تحت إشراف مدربين متخصصين في مختلف المجالات التقنية والإبداعية.
+                        </p>
+                        <div class="features-grid">
+                            <div class="feature">
+                                <i class="fas fa-briefcase"></i>
+                                <h4>خبرة عملية حقيقية</h4>
+                                <p>تطبيق المعرفة الأكاديمية في مشاريع واقعية</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-tie"></i>
+                                <h4>إشراف متخصص</h4>
+                                <p>متابعة مباشرة من مدربين ذوي خبرة</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-network-wired"></i>
+                                <h4>شبكة علاقات مهنية</h4>
+                                <p>التواصل مع محترفين في المجال</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-certificate"></i>
+                                <h4>شهادة معتمدة</h4>
+                                <p>شهادة تدريب معتمدة من فاب لاب الأحساء</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                            <p>بيئة التدريب في فاب لاب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Programs Section -->
+        <section class="internship-programs" id="programs">
+            <div class="container">
+                <h2 class="section-title">برامج التدريب المتاحة</h2>
+                <p class="section-subtitle">اختر البرنامج الذي يتوافق مع تخصصك واهتماماتك</p>
+                
+                <div class="programs-grid">
+                    <!-- Program 1 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">التصميم والتصنيع الرقمي</h3>
+                            <span class="program-duration">12 أسبوع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 15 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 3 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 8</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: الهندسة، التصميم، الفنون</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            برنامج متخصص في التصميم بمساعدة الحاسوب والتصنيع الرقمي باستخدام الطابعات ثلاثية الأبعاد، 
+                            CNC، والليزر كت.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">3D Modeling</span>
+                                <span class="skill-tag">CAD/CAM</span>
+                                <span class="skill-tag">3D Printing</span>
+                                <span class="skill-tag">Laser Cutting</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+
+                    <!-- Program 2 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">برمجة وتطوير الروبوتات</h3>
+                            <span class="program-duration">16 أسبوع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 1 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 4 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 6</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: الحاسب، الهندسة، الميكاترونكس</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            تدريب عملي على تصميم وبرمجة الروبوتات، وتطوير أنظمة التحكم الآلي، وتطبيقات الذكاء الاصطناعي في الروبوتات.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">ROS</span>
+                                <span class="skill-tag">Arduino</span>
+                                <span class="skill-tag">Computer Vision</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+
+                    <!-- Program 3 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">تطوير التطبيقات والويب</h3>
+                            <span class="program-duration">14 أسبوع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 10 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 3.5 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 10</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: الحاسب، تقنية المعلومات</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            تطوير مهارات البرمجة وإنشاء تطبيقات ويب وموبايل متكاملة باستخدام أحدث التقنيات وأطر العمل الحديثة.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Database Design</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+
+                    <!-- Program 4 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">الإلكترونيات والأنظمة المدمجة</h3>
+                            <span class="program-duration">12 أسبوع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 20 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 3 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 8</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: الهندسة الكهربائية، الإلكترونيات</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            تصميم وتطوير الدوائر الإلكترونية، وبرمجة الأنظمة المدمجة، وتطبيقات إنترنت الأشياء IoT.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">Circuit Design</span>
+                                <span class="skill-tag">Embedded C</span>
+                                <span class="skill-tag">IoT</span>
+                                <span class="skill-tag">PCB Design</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+
+                    <!-- Program 5 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">التصميم الجرافيكي والوسائط المتعددة</h3>
+                            <span class="program-duration">10 أسابيع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 5 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 2.5 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 12</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: التصميم، الفنون، الإعلام</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            تطوير مهارات التصميم الجرافيكي، الرسوم المتحركة، وتحرير الفيديو باستخدام البرامج الاحترافية.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">Adobe Creative Suite</span>
+                                <span class="skill-tag">Motion Graphics</span>
+                                <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">Video Editing</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+
+                    <!-- Program 6 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">إدارة المشاريع التقنية</h3>
+                            <span class="program-duration">12 أسبوع</span>
+                        </div>
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>موعد البدء: 15 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>المدة: 3 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>المقاعد المتاحة: 8</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-university"></i>
+                                <span>لطلاب: إدارة الأعمال، الهندسة، الحاسب</span>
+                            </div>
+                        </div>
+                        <p class="program-description">
+                            تعلم منهجيات إدارة المشاريع التقنية، التخطيط، وإدارة الفرق في بيئات التطوير التقني.
+                        </p>
+                        <div class="program-skills">
+                            <h4>المهارات المكتسبة:</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">Agile Methodology</span>
+                                <span class="skill-tag">Project Planning</span>
+                                <span class="skill-tag">Team Leadership</span>
+                                <span class="skill-tag">Risk Management</span>
+                            </div>
+                        </div>
+                        <div class="program-actions">
+                            <a href="#apply" class="btn-primary">تقديم للبرنامج</a>
+                            <button class="btn-secondary">تفاصيل البرنامج</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process Section -->
+        <section class="application-process">
+            <div class="container">
+                <h2 class="section-title">خطوات التقديم</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>التقديم الإلكتروني</h3>
+                            <p>املأ نموذج التقديم عبر المنصة الإلكترونية وأرفق المستندات المطلوبة</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>مراجعة الطلب</h3>
+                            <p>سيتم مراجعة طلبك من قبل فريق القبول خلال 5-7 أيام عمل</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>المقابلة الشخصية</h3>
+                            <p>سيتم التواصل معك لإجراء مقابلة شخصية أو عبر الإنترنت</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>قبول الطلب</h3>
+                            <p>ستتلقى رسالة قبول رسمية مع تفاصيل بدء البرنامج</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form Section -->
+        <section class="application-form" id="apply">
+            <div class="container">
+                <h2 class="section-title">تقديم طلب التدريب التعاوني</h2>
+                <p class="section-subtitle">املأ النموذج أدناه لتقديم طلب الانضمام إلى برنامج التدريب التعاوني</p>
+                
+                <form class="internship-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">الاسم الكامل</label>
+                            <input type="text" id="full-name" name="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الجوال</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="major">التخصص</label>
+                            <input type="text" id="major" name="major" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="university">الجامعة</label>
+                            <input type="text" id="university" name="university" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="program">برنامج التدريب المطلوب</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>المستندات المطلوبة</label>
+                            <div class="document-item">
+                                <input type="file" id="letter" name="letter" accept=".pdf,.doc,.docx">
+                                <label for="letter">خطاب تعريف من الجامعة</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary">تقديم الطلب</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="section-title">الجامعات الشريكة</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <i class="fas fa-university"></i>
+                        <span>جامعة الملك فيصل</span>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-university"></i>
+                        <span>الكلية التقنية بالأحساء</span>
+                    </div>
+                   
+                    <div class="partner-logo">
+                        <i class="fas fa-university"></i>
+                        <span>كلية المجتمع بالأحساء</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+             <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4 class="section-heading">المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
+                            allowfullscreen="" loading="lazy" 
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+                <div class="working-hours">
+                    <h4 class="section-heading">أوقات العمل</h4>
+                    <p>الأحد - الخميس: 10:00 ص - 8:00 م</p>
+                </div>
+            </div>
+
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+            <button class="chatbot-close">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+            <button id="chatbot-send">إرسال</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+
+    <script src="{% static 'users/js/internship.js' %}"></script>
+</body>
+</html>

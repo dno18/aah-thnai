@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التطوع - فاب لاب الأحساء</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/volunteer.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{% static 'users/images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        من نحن 
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        الخدمات 
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                        <li><a href="{% url 'services' %}">خدماتنا</a></li>               
+                    </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        انضم إلينا 
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#volunteer">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            {% if user.is_authenticated %}
+                <a href="#" id="notificationBell" class="btn-control notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount" style="display: none;">0</span>
+                </a>
+                <span class="user-greeting">مرحبًا، {{ user.username }}</span>
+                <a href="#" id="logoutButton" class="btn-control"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            {% else %}
+                <a href="{% url 'register_view' %}" id="registerButton" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+                <a href="{% url 'login_view' %}" id="loginButton" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+        
+        <!-- Volunteer Hero Section -->
+        <section class="volunteer-hero">
+            <div class="container">
+                <h1 class="hero-title">التطوع في فاب لاب الأحساء</h1>
+                <p class="hero-subtitle">انضم إلى فريقنا من المتطوعين وساهم في بناء مجتمع مبتكر</p>
+            </div>
+        </section>
+
+        <!-- Volunteer Opportunities Section -->
+        <section class="volunteer-opportunities" id="volunteer">
+            <div class="container">
+                <h2 class="section-title">فرص التطوع المتاحة</h2>
+                <div class="opportunities-grid">
+                    <!-- Volunteer Opportunity 1 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">مساعد تدريب</h3>
+                            <span class="opportunity-badge">مطلوب بشدة</span>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 15 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 3 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 5</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            تقديم الدعم في ورش العمل والدورات التدريبية، مساعدة المدربين في التحضير والتنسيق، وتقديم الدعم الفني للمشاركين.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>خبرة في مجال التدريب أو التعليم</li>
+                                <li>مهارات تواصل ممتازة</li>
+                                <li>القدرة على العمل ضمن فريق</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/1" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Opportunity 2 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">مشرف معمل الأطفال</h3>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 1 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 6 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 3</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            الإشراف على أنشطة معمل الأطفال، وتنظيم ورش العمل الإبداعية، وضمان سلامة الأطفال أثناء استخدام المعدات.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>خبرة في التعامل مع الأطفال</li>
+                                <li>خلفية في التعليم أو التربية</li>
+                                <li>القدرة على الإبداع والابتكار</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/2" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Opportunity 3 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">مسؤول وسائل التواصل الاجتماعي</h3>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 10 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 4 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 2</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            إدارة حسابات فاب لاب على وسائل التواصل الاجتماعي، إنشاء محتوى جذاب، والتفاعل مع المتابعين.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>خبرة في إدارة وسائل التواصل الاجتماعي</li>
+                                <li>مهارات كتابة محتوى إبداعي</li>
+                                <li>القدرة على العمل بشكل مستقل</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/3" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Opportunity 4 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">مساعد فني في نادي الروبوتات</h3>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 20 يناير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 5 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 4</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            تقديم الدعم الفني في نادي الروبوتات، مساعدة المشاركين في بناء وبرمجة الروبوتات، وصيانة المعدات.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>خبرة في مجال الروبوتات أو البرمجة</li>
+                                <li>مهارات تقنية متقدمة</li>
+                                <li>القدرة على حل المشكلات التقنية</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/4" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Opportunity 5 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">منسق فعاليات</h3>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 5 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 2 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 3</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            التخطيط والتنظيم للفعاليات والمناسبات الخاصة بفاب لاب، والتنسيق مع المشاركين والمتطوعين الآخرين.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>خبرة في تنظيم الفعاليات</li>
+                                <li>مهارات تنظيمية وتخطيطية</li>
+                                <li>القدرة على العمل تحت الضغط</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/5" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Opportunity 6 -->
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <h3 class="opportunity-title">مصمم جرافيك</h3>
+                        </div>
+                        <div class="opportunity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>تاريخ البدء: 15 فبراير 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>مدة التطوع: 6 أشهر</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>عدد المتطوعين المطلوبين: 2</span>
+                            </div>
+                        </div>
+                        <p class="opportunity-description">
+                            تصميم المواد البصرية للفعاليات وورش العمل، إنشاء الشعارات والمواد الترويجية، وتصميم العروض التقديمية.
+                        </p>
+                        <div class="opportunity-requirements">
+                            <h4>المتطلبات:</h4>
+                            <ul>
+                                <li>إتقان برامج التصميم (Photoshop, Illustrator)</li>
+                                <li>حافظة أعمال سابقة</li>
+                                <li>القدرة على الالتزام بالمواعيد النهائية</li>
+                            </ul>
+                        </div>
+                        <div class="opportunity-actions">
+                            <a href="https://volunteer-platform.fablabahsa.org/opportunity/6" class="btn-primary" target="_blank">تسجيل في الفرصة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">مزايا التطوع في فاب لاب الأحساء</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>شهادة تطوع</h3>
+                        <p>احصل على شهادة معتمدة تثبت خبرتك التطوعية في فاب لاب الأحساء</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>تدريب مجاني</h3>
+                        <p>استفد من الدورات والورش التدريبية المجانية في مختلف المجالات التقنية</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>شبكة علاقات</h3>
+                        <p>انضم إلى مجتمع من المبتكرين وابنِ شبكة علاقات مهنية قوية</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>فرص وظيفية</h3>
+                        <p>احصل على أولوية في التوظيف عند توفر فرص عمل في فاب لاب أو شركائنا</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي شروط التطوع في فاب لاب الأحساء؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يشترط للتطوع في فاب لاب الأحساء أن يكون المتطوع عمره 18 سنة فما فوق، وأن يمتلك المهارات المطلوبة للفرصة التطوعية، وأن يكون لديه الرغبة الحقيقية في المساهمة في بناء المجتمع.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>كم عدد ساعات التطوع المطلوبة أسبوعياً؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يختلف عدد الساعات المطلوبة حسب الفرصة التطوعية، ولكن معظم الفرص تتطلب من 5 إلى 10 ساعات أسبوعياً. يمكنك اختيار الفرصة التي تناسب وقتك وتوافرك.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل أحتاج إلى خبرة سابقة للتطوع؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>تختلف المتطلبات حسب الفرصة التطوعية. بعض الفرص تتطلب خبرة سابقة، بينما نوفر فرصاً أخرى للمبتدئين مع تقديم التدريب اللازم.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+             <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4 class="section-heading">المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
+                            allowfullscreen="" loading="lazy" 
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+                <div class="working-hours">
+                    <h4 class="section-heading">أوقات العمل</h4>
+                    <p>الأحد - الخميس: 10:00 ص - 8:00 م</p>
+                </div>
+            </div>
+
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+            <button class="chatbot-close">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+            <button id="chatbot-send">إرسال</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+
+    <script src="{% static 'users/js/volunteer.js' %}"></script>
+</body>
+</html>

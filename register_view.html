@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - فاب لاب الأحساء</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32/9C27B0/FFFFFF?text=ف" type="image/x-icon">
+</head>
+<body>
+    <!-- Star Background -->
+    <canvas id="star-canvas"></canvas>
+    
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            <a href="{% url 'login_view' %}" id="loginButton" class="btn-control">
+                <i class="fas fa-sign-in-alt"></i> دخول
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1 class="auth-title">إنشاء حساب جديد</h1>
+                        <p class="auth-subtitle">انضم إلى مجتمع الفاب لاب وابدأ رحلة الإبداع</p>
+                    </div>
+                    
+                    <form class="auth-form" method="POST" action="{% url 'register_view' %}">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="username" class="form-label">
+                                <i class="fas fa-user"></i>
+                                اسم المستخدم
+                            </label>
+                            <input type="text" id="username" name="username" class="form-input" placeholder="أدخل اسم المستخدم" required>
+                            <div class="form-error" id="username-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                البريد الإلكتروني
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="أدخل بريدك الإلكتروني" required>
+                            <div class="form-error" id="email-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                كلمة المرور
+                            </label>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="أدخل كلمة المرور" required>
+                            <div class="form-error" id="password-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                تأكيد كلمة المرور
+                            </label>
+                            <input type="password" id="confirm-password" name="confirm_password" class="form-input" placeholder="أكد كلمة المرور" required>
+                            <div class="form-error" id="confirm-password-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="agree-terms" name="agree_terms">
+                                أوافق على <a href="#" class="link">الشروط والأحكام</a>
+                            </label>
+                            <div class="form-error" id="terms-error"></div>
+                        </div>
+
+                        <button type="submit" class="btn-auth-primary">
+                            <i class="fas fa-user-plus"></i>
+                            إنشاء الحساب
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p class="auth-link">
+                            لديك حساب بالفعل؟ 
+                            <a href="{% url 'login_view' %}" class="link">سجل الدخول هنا</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer-copyright">
+        <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+    </div>
+
+    <script src="{% static 'users/js/register.js' %}"></script>
+</body>
+</html>

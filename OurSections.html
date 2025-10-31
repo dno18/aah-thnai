@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أقسام فاب لاب الأحساء</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'users/css/OurSections.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32/9C27B0/FFFFFF?text=ف" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header with Video Background -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                         <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                         <li><a href="{% url 'services' %}">خدماتنا</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            <a href="{% url 'register_view' %}" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+            <a href="{% url 'login_view' %}" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+        
+        <!-- أقسام فاب لاب -->
+        <section id="our-sections" class="fablab-sections-section">
+            <div class="sections-container">
+                <div class="section-header">
+                    <h1>أقسام فاب لاب الأحساء</h1>
+                    <div class="section-line"></div>
+                    <p class="intro-text">استكشف أقسامنا المتنوعة التي توفر أحدث التقنيات لدعم الابتكار والإبداع. اختر قسماً لمعرفة المزيد.</p>
+                </div>
+                <div class="sections-tabs">
+                    <div class="tabs-nav">
+                        <button class="tab-button active" data-tab="electronics">قسم الإلكترونيات والبرمجة</button>
+                        <button class="tab-button" data-tab="printing">قسم الطباعة ثلاثية الأبعاد</button>
+                        <button class="tab-button" data-tab="carving">قسم النحت والقطع</button>
+                        <button class="tab-button" data-tab="laser">قسم الليزر للحرق والقص</button>
+                        <button class="tab-button" data-tab="vinyl">قسم القطع بالفينيل</button>
+                        <button class="tab-button" data-tab="studio">قسم الاستوديو</button>
+                        <button class="tab-button" data-tab="brainstorming">غرفة العصف الذهني</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div id="electronics" class="tab-pane active">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a8.jpeg' %}" alt="قسم الإلكترونيات والبرمجة">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم الإلكترونيات والبرمجة</h2>
+                                <p>في هذا القسم، تجد كل ما يتعلق بالإلكترونيات من قطع إلكترونية مثل الأردوينو، المتحكمات الدقيقة، أجهزة التلحيم، الراسبيري باي، الإضاءات، والقطع الأخرى. تعلم كيفية برمجتها وتطوير مشاريع إلكترونية متقدمة.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-microchip"></i> أدوات برمجة متقدمة</li>
+                                    <li><i class="fas fa-tools"></i> معدات تلحيم احترافية</li>
+                                    <li><i class="fas fa-lightbulb"></i> دعم للمشاريع الإبداعية</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="printing" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a9.jpeg' %}" alt="قسم الطباعة ثلاثية الأبعاد">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم الطباعة ثلاثية الأبعاد</h2>
+                                <p>يحتوي هذا القسم على طابعات متنوعة ثلاثية الأبعاد بأحجام مختلفة ومزايا متعددة. استخدمها لطباعة تصاميمك الإبداعية وتحويل أفكارك إلى واقع ملموس.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-print"></i> طابعات عالية الدقة</li>
+                                    <li><i class="fas fa-cubes"></i> مواد طباعة متنوعة</li>
+                                    <li><i class="fas fa-tools"></i> دعم فني متخصص</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="carving" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a3.jpeg' %}" alt="قسم النحت والقطع">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم النحت والقطع</h2>
+                                <p>يحتوى هذا القسم على الات النحت والقطع القادرة على قطع اخشاب والمواد الاخرى مثل البلاستيك و النحت عليها.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-tools"></i> آلات نحت متقدمة</li>
+                                    <li><i class="fas fa-lightbulb"></i> دعم للتصاميم الإبداعية</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="laser" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a2.jpeg' %}" alt="قسم الليزر للحرق والقص">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم الليزر للحرق والقص</h2>
+                                <p>في هذا القسم تجد آلات القطع بالليزر التي تمكنك من قطع مواد مثل الخشب والبلاستيك والنحت على المعادن المطلية والجلد وغيرها.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-tools"></i> آلات ليزر عالية الدقة</li>
+                                    <li><i class="fas fa-cut"></i> قطع ونحت متنوع</li>
+                                    <li><i class="fas fa-shield"></i> مواد آمنة ومتنوعة</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="vinyl" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a7.jpeg' %}" alt="قسم القطع بالفينيل">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم القطع بالفينيل</h2>
+                                <p>باستخدام آلات قطع الفينيل بإمكانك اعمالك الفنية إضافة لمسة جمالية لهوية مشروعك.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-cut"></i> آلات قطع فينيل احترافية</li>
+                                    <li><i class="fas fa-tools"></i> أعمال فنية مخصصة</li>
+                                    <li><i class="fas fa-lightbulb"></i> تعزيز هوية المشروع</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="studio" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a6.jpeg' %}" alt="قسم الاستوديو">
+                            </div>
+                            <div class="tab-description">
+                                <h2>قسم الاستوديو</h2>
+                                <p>يحتوي هذا القسم على المعدات التي تمكنك من تسجيل محتواك الصوتي الخاص بك بالإضافة إلى أجهزة حاسوب بإمكانيات عالية لعمليات المونتاج والهندسة الصوتية وجدارية الكروما الخضراء للعزل في التصوير وإضاءات تصوير عالية الجودة.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-microphone"></i> تسجيل صوتي احترافي</li>
+                                    <li><i class="fas fa-video"></i> كروما وإضاءات تصوير</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="brainstorming" class="tab-pane">
+                            <div class="tab-image">
+                                <img src="{% static 'users/images/sec/a1.jpeg' %}" alt="غرفة العصف الذهني">
+                            </div>
+                            <div class="tab-description">
+                                <h2>غرفة العصف الذهني</h2>
+                                <p>تقع هذه الغرفة في قلب فاب لاب الأحساء في هذه الغرفة بإمكانك أن تستغل كل جزء من الحوائط الزجاجية أو الطاولة الذكية لتفعيل العصف الذهني مع فريقك وتتناقش حول مشروعك.</p>
+                                <ul class="features-list">
+                                    <li><i class="fas fa-brain"></i> حوائط زجاجية للكتابة</li>
+                                    <li><i class="fas fa-table"></i> طاولة ذكية</li>
+                                    <li><i class="fas fa-users"></i> جلسات فريقية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer - Restructured -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+            <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- New Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4 class="section-heading">المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
+                            allowfullscreen="" loading="lazy" 
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+                <div class="working-hours">
+                    <h4 class="section-heading">أوقات العمل</h4>
+                    <p>الأحد - الخميس: 10:00 ص - 8:00 م</p>
+                </div>
+            </div>
+
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+    <div class="chatbot-header">
+        <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+        <button class="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+        <button id="chatbot-send">إرسال</button>
+    </div>
+    </div>
+    <button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+
+    <script src="{% static 'users/js/OurSections.js' %}"></script>
+</body>
+</html>

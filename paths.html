@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسارات فاب لاب الأحساء</title>
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'users/css/paths.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32/9C27B0/FFFFFF?text=ف" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                      <li><a href="{% url 'services' %}">خدماتنا</a></li>               
+                    </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+         <!-- عناصر التحكم مع نظام الإشعارات -->
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            {% if user.is_authenticated %}
+                <span class="user-greeting">مرحبًا، {{ user.username }}</span>
+                <a href="#" id="notificationBell" class="btn-control notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount" style="display: none;">0</span>
+                </a>
+                <a href="#" id="logoutButton" class="btn-control"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            {% else %}
+                <a href="{% url 'register_view' %}" id="registerButton" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+                <a href="{% url 'login_view' %}" id="loginButton" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+        
+        <!-- مسارات فاب لاب -->
+        <section id="our-paths" class="timeline-section">
+            <div class="spacer-container">
+                <div class="spacer"></div>
+            </div>
+            <div class="timeline-header">
+                <h2>مسارات فاب لاب الأحساء</h2>
+                <p>لتقديم الخدمات بأفضل جودة ممكنة وبأفضل صورة تنظيمية ممكنة، يعمل فريق فاب لاب الأحساء في تنفيذ برامجه وتقديم خدماته من خلال مسارات واضحة تقوم على أهداف محددة كالتالي:</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="red-line"></div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار الإثراء</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">يركز هذا المسار على إثراء المحتوى العربي فيما يتعلق بالتصنيع الرقمي وذلك من خلال البرامج التي يقدمها فاب لاب الأحساء على سبيل المثال: الورش التدريبية التي يتم تسجيلها ونشرها في الإنترنت وبرنامج المحتوى الصوتي الخاص فاب كاست والذي من خلاله يتم نشر محتوى صوتي ذا صلة بالتصنيع الرقمي وغيرها من البرامج الإثرائية</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار التمكين</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">يشمل هذا المسار على كل ما يتعلق بتدريب الأفراد والمجموعات على آلات التصنيع الرقمي المتواجدة في المعمل من خلال البرامج وورش العمل والمعسكرات التدريبية والمسابقات الابتكارية ورعاية الموهوبين والمساعدة على حصول براءات اختراع</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار المشاريع</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">يختص هذا المسار بالمشاريع التي يتم تنفيذها من قبل المستفيدين والمشاريع التي ينفذها فريق فاب لاب داخل المعمل وخارجه كمشاريع مجتمعية</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار البحث و التطوير</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">يعنى هذا المسار على العمل في مجال البحث والتطوير عن طريق التعاون مع الخبراء والباحثين لنشر أوراق علمية من شأنها أن تضيف للمجتمع أو تطوره</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار الشراكات</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">نركز في فاب لاب الأحساء على إيجاد الشراكات النوعية التي تمكننا من تحقيق أهدافنا بالتعاون معهم في توعية المجتمع بأهمية التصنيع الرقمي وتمكين الأفراد في عدة مجالات تقنية رقمية</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="content right">
+                        <div class="path-title">مسار الاستدامة</div>
+                    </div>
+                    <div class="content left">
+                        <p class="description">تعتبر استدامة معامل التصنيع الرقمية هدف عالمي تسعى له كل المعامل وذلك لأن هذه المعامل تحتاج إلى دعم مستمر لكي تقدم الخدمات للمجتمع ولأننا معمل غير ربحي نعمل جاهدين على إيجاد مشاريع تابعة لفاب لاب الأحساء تساهم في استدامة المعمل وإفادة المجتمع</p>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer - Restructured -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+            <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- New Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4>المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
+                            allowfullscreen="" loading="lazy" 
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+            </div>
+
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+    <div class="chatbot-header">
+        <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+        <button class="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+        <button id="chatbot-send">إرسال</button>
+    </div>
+    </div>
+    <button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+    <script src="{% static 'users/js/common.js' %}"></script>
+
+    <script src="{% static 'users/js/paths.js' %}"></script>
+</body>
+</html>

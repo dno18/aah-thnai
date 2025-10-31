@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات فاب لاب الأحساء</title>
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'users/css/services.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32/9C27B0/FFFFFF?text=ف" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <!-- Overlay for Content -->
+    <div class="overlay"></div>
+
+    <!-- Header with Video Background -->
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'index' %}">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'index' %}#workshops">الدورات</a></li>
+                      <li><a href="{% url 'services' %}">خدماتنا</a></li>               
+                    </ul>
+                </li>
+                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <a href="#" id="languageSwitch" class="btn-control">EN</a>
+            <a href="{% url 'register_view' %}" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
+            <a href="{% url 'login_view' %}" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <canvas class="star-background" id="star-canvas"></canvas>
+        
+        <!-- قسم الخدمات الرئيسي -->
+        <section class="services-hero" id="services">
+            <h1>خدمات فاب لاب الأحساء</h1>
+            <p>نقدم لكم مجموعة متكاملة من الخدمات التقنية المتطورة لدعم إبداعكم وتحويل أفكاركم إلى واقع ملموس</p>
+        </section>
+        
+        <!-- شبكة الخدمات -->
+        <div class="services-container">
+            <div class="services-grid">
+                <!-- قسم الإلكترونيات والبرمجة -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>قسم الإلكترونيات والبرمجة</h3>
+                    <p>نوفر في هذا القسم مجموعة من الأدوات والمعدات لتصميم وبرمجة الدوائر الإلكترونية وتطوير المشاريع التقنية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصميم الدوائر الإلكترونية</li>
+                        <li><i class="fas fa-check"></i> برمجة المتحكمات الدقيقة</li>
+                        <li><i class="fas fa-check"></i> تطوير تطبيقات IoT</li>
+                        <li><i class="fas fa-check"></i> تدريب على استخدام الأدوات</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="الإلكترونيات والبرمجة">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="الإلكترونيات والبرمجة">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- قسم الطباعة ثلاثية الأبعاد -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>قسم الطباعة ثلاثية الأبعاد</h3>
+                    <p>نقدم خدمات الطباعة ثلاثية الأبعاد بدقة عالية باستخدام أحدث الطابعات لتحويل أفكاركم إلى نماذج ملموسة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> طباعة النماذج الأولية</li>
+                        <li><i class="fas fa-check"></i> تصميم النماذج ثلاثية الأبعاد</li>
+                        <li><i class="fas fa-check"></i> استخدام مواد متنوعة (PLA, ABS)</li>
+                        <li><i class="fas fa-check"></i> دعم فني متكامل</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="الطباعة ثلاثية الأبعاد">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="الطباعة ثلاثية الأبعاد">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- قسم النحت والقطع -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>قسم النحت والقطع</h3>
+                    <p>نوفر أجهزة متطورة للنحت والقطع على المواد المختلفة مثل الخشب والأكريليك لتنفيذ التصاميم الدقيقة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> قطع ونحت الخشب</li>
+                        <li><i class="fas fa-check"></i> نحت الأكريليك والبلاستيك</li>
+                        <li><i class="fas fa-check"></i> تصميم القوالب والنماذج</li>
+                        <li><i class="fas fa-check"></i> إنتاج قطع دقيقة ومتنوعة</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="النحت والقطع">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="النحت والقطع">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- قسم الليزر للحرق والقص -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-burn"></i>
+                    </div>
+                    <h3>قسم الليزر للحرق والقص</h3>
+                    <p>نقدم خدمات الحرق والقص بالليزر على مختلف المواد بدقة وجودة عالية لتحقيق التصاميم المطلوبة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> قص وحرق الخشب</li>
+                        <li><i class="fas fa-check"></i> نقش على الجلود</li>
+                        <li><i class="fas fa-check"></i> قص الأكريليك والمواد البلاستيكية</li>
+                        <li><i class="fas fa-check"></i> تصميم شخصي للمنتجات</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="الليزر للحرق والقص">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="الليزر للحرق والقص">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- قسم القطع بالفينيل -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>قسم القطع بالفينيل</h3>
+                    <p>نوفر خدمات القطع بالفينيل لإنشاء التصاميم اللاصقة والديكورات باستخدام مواد فينيل عالية الجودة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> قص ملصقات الفينيل</li>
+                        <li><i class="fas fa-check"></i> تصميم شعارات وديكورات</li>
+                        <li><i class="fas fa-check"></i> فينيل حراري للملابس</li>
+                        <li><i class="fas fa-check"></i> خدمات تركيب الفينيل</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="القطع بالفينيل">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="القطع بالفينيل">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- قسم الاستوديو -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>قسم الاستوديو</h3>
+                    <p>نوفر استوديو مجهز بأحدث تقنيات التصوير والإضاءة لتسجيل المحتوى المرئي بجودة احترافية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصوير فيديو احترافي</li>
+                        <li><i class="fas fa-check"></i> تسجيل البودكاست</li>
+                        <li><i class="fas fa-check"></i> إضاءة متكاملة وخلفيات</li>
+                        <li><i class="fas fa-check"></i> معدات صوت عالية الجودة</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="الاستوديو">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="الاستوديو">استشارة</button>
+                    </div>
+                </div>
+                
+                <!-- غرفة العصف الذهني -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>غرفة العصف الذهني</h3>
+                    <p>غرفة مخصصة للاجتماعات والعصف الذهني، مجهزة بتقنيات متطورة لدعم الإبداع وتبادل الأفكار.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> بيئة محفزة للإبداع</li>
+                        <li><i class="fas fa-check"></i> شاشات تفاعلية وأدوات عرض</li>
+                        <li><i class="fas fa-check"></i> طاولات عمل مرنة</li>
+                        <li><i class="fas fa-check"></i> إمكانية عقد ورش عمل</li>
+                    </ul>
+                    <div class="service-actions">
+                        <button class="btn-service btn-book" data-service="غرفة العصف الذهني">حجز خدمة</button>
+                        <button class="btn-service btn-consult" data-service="غرفة العصف الذهني">استشارة</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نظام الحجز -->
+            <section class="booking-section" id="booking">
+                <h2>نظام الحجز الإلكتروني</h2>
+                <div class="booking-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <p>اختر الخدمة</p>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <p>حدد الموعد</p>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <p>أكمل البيانات</p>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <p>تأكيد الحجز</p>
+                    </div>
+                </div>
+                
+                <div class="booking-form-container">
+                    <form id="step1" class="booking-form active">
+                        <div class="form-group">
+                            <label for="service">
+                                <i class="fas fa-cogs"></i> اختر الخدمة المطلوبة
+                            </label>
+                            <select id="service" required>
+                                <option value="" disabled selected>-- اختر الخدمة من القائمة --</option>
+                                <option value="الإلكترونيات والبرمجة">🔌 الإلكترونيات والبرمجة</option>
+                                <option value="الطباعة ثلاثية الأبعاد">🖨️ الطباعة ثلاثية الأبعاد</option>
+                                <option value="النحت والقطع">⚒️ النحت والقطع</option>
+                                <option value="الليزر للحرق والقص">🔥 الليزر للحرق والقص</option>
+                                <option value="القطع بالفينيل">🎨 القطع بالفينيل</option>
+                                <option value="الاستوديو">🎥 الاستوديو</option>
+                                <option value="غرفة العصف الذهني">💡 غرفة العصف الذهني</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-type">
+                                <i class="fas fa-tasks"></i> نوع الخدمة
+                            </label>
+                            <select id="service-type" required>
+                                <option value="" disabled selected>-- اختر نوع الخدمة --</option>
+                                <option value="استشارة">💬 استشارة</option>
+                                <option value="استخدام الجهاز">🛠️ استخدام الجهاز</option>
+                                <option value="تدريب">🎓 تدريب</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <div></div>
+                            <button type="button" class="btn-next" onclick="nextStep(1)">التالي</button>
+                        </div>
+                    </form>
+                    
+                    <form id="step2" class="booking-form">
+                        <div class="form-group">
+                            <label for="booking-date">التاريخ المطلوب</label>
+                            <input type="date" id="booking-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-time">الوقت المطلوب</label>
+                            <input type="time" id="booking-time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">المدة المتوقعة (ساعات)</label>
+                            <input type="number" id="duration" min="1" max="8" value="1" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-prev" onclick="prevStep(2)">السابق</button>
+                            <button type="button" class="btn-next" onclick="nextStep(2)">التالي</button>
+                        </div>
+                    </form>
+                    
+                    <form id="step3" class="booking-form">
+                        <div class="form-group">
+                            <label for="full-name">الاسم الكامل</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">ملاحظات إضافية</label>
+                            <textarea id="notes"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-prev" onclick="prevStep(3)">السابق</button>
+                            <button type="button" class="btn-next" onclick="nextStep(3)">التالي</button>
+                        </div>
+                    </form>
+                    
+                    <form id="step4" class="booking-form">
+                        <div class="booking-summary">
+                            <h3 style="color: #FFC107; text-align: center; margin-bottom: 20px;">ملخص الحجز</h3>
+                            <div class="summary-item">
+                                <strong>الخدمة:</strong> <span id="summary-service"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>نوع الخدمة:</strong> <span id="summary-type"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>التاريخ:</strong> <span id="summary-date"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>الوقت:</strong> <span id="summary-time"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>المدة:</strong> <span id="summary-duration"></span> ساعة
+                            </div>
+                            <div class="summary-item">
+                                <strong>الاسم:</strong> <span id="summary-name"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>البريد الإلكتروني:</strong> <span id="summary-email"></span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>الهاتف:</strong> <span id="summary-phone"></span>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-prev" onclick="prevStep(4)">السابق</button>
+                            <button type="button" class="btn-submit" onclick="submitBooking()">تأكيد الحجز</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- قسم الاستشارات -->
+            <section class="consultation-section">
+                <h2>خدمات الاستشارات</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #ccc;">نوفر استشارات متخصصة في مختلف المجالات التقنية لمساعدتك في تحقيق أفكارك</p>
+                
+                <div class="consultation-types">
+                    <div class="consultation-type">
+                        <i class="fas fa-headset"></i>
+                        <h4>استشارة أولية</h4>
+                        <p>استشارة تمهيدية لتحديد الاحتياجات والمتطلبات</p>
+                        <button class="btn-service btn-book" style="width: 100%;">احجز استشارة</button>
+                    </div>
+                    
+                    <div class="consultation-type">
+                        <i class="fas fa-cogs"></i>
+                        <h4>استشارة تقنية متقدمة</h4>
+                        <p>استشارة متخصصة في المجالات التقنية المتقدمة</p>
+                        <button class="btn-service btn-book" style="width: 100%;">احجز استشارة</button>
+                    </div>
+                    
+                    <div class="consultation-type">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>استشارة مشروع متكامل</h4>
+                        <p>استشارة شاملة لمشروع كامل من التصميم إلى التنفيذ</p>
+                        <button class="btn-service btn-book" style="width: 100%;">احجز استشارة</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <!-- Logo and Social Media Section -->
+            <div class="footer-section logo-social-section">
+                <div class="footer-logo">
+                    <img src="{% static 'users/images/fablab-logo.png' %}" alt="شعار فاب لاب الأحساء">
+                </div>
+                <!-- New Social Media Buttons -->
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a href="https://x.com/fablabahsa" aria-label="منصة X" data-social="x">
+                            <div class="filled"></div>
+                            <span class="x-icon">𝕏</span>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://instagram.com/fablabahsa" aria-label="إنستغرام" data-social="instagram">
+                            <div class="filled"></div>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://youtube.com/@fablabahsa" aria-label="يوتيوب" data-social="youtube">
+                            <div class="filled"></div>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="icon-content">
+                        <a href="https://snapchat.com/add/fablabahsa" aria-label="سناب شات" data-social="snapchat">
+                            <div class="filled"></div>
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Programmers Section -->
+                <div class="programmers-section">
+                    <h4>المبرمجون</h4>
+                    <div class="programmers-list">
+                        <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            باسم المشموم
+                        </a>
+                        <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            علي العبودي
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-section map-section">
+                <h3>موقعنا على الخريطة</h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
+                            allowfullscreen="" loading="lazy" 
+                            aria-label="موقع فاب لاب الأحساء على الخريطة">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                </div>
+            </div>
+
+            <!-- Compact Contact Form Section -->
+            <div class="footer-section contact-form-section">
+                <h3>أرسل لنا رسالة</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="footer-name" placeholder="اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="footer-email" placeholder="بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="footer-message" placeholder="رسالتك هنا..." rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+        </div>
+    </footer>
+
+    <!-- Chat Bot -->
+    
+
+  <script src="{% static 'users/js/services.js' %}"></script>
+    <script src="{% static 'users/js/auth.js' %}"></script>
+    <!-- Chatbot Widget -->
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+        <button class="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
+        <button id="chatbot-send">إرسال</button>
+    </div>
+</div>
+<button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+</body>
+</html>
