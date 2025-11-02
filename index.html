@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlElement">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فاب لاب الأحساء - مستقبل الإبداع</title>
+    <title>Fab Lab Al Ahsa - Future of Creativity</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -18,8 +18,8 @@
         </video>
         <div class="video-overlay"></div>
         <div class="video-text">
-            <h1>مستقبل الإبداع يبدأ هنا</h1>
-            <p>اكتشف عالم التصنيع الرقمي مع فاب لاب الأحساء</p>
+            <h1 data-i18n="video_title">مستقبل الإبداع يبدأ هنا</h1>
+            <p data-i18n="video_subtitle">اكتشف عالم التصنيع الرقمي مع فاب لاب الأحساء</p>
         </div>
     </div>
 
@@ -48,39 +48,39 @@
                 <i class="fas fa-times"></i>
             </button>
             <ul>
-                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">من نحن <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-i18n="nav_about">من نحن <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'AboutFablab' %}">عن فاب لاب</a></li>
-                        <li><a href="{% url 'Paths' %}">مساراتنا</a></li>
-                        <li><a href="{% url 'OurSections' %}">أقسامنا</a></li>
-                        <li><a href="{% url 'facilities' %}">مرافقنا</a></li>
+                        <li><a href="{% url 'AboutFablab' %}" data-i18n="nav_about_fablab">عن فاب لاب</a></li>
+                        <li><a href="{% url 'Paths' %}" data-i18n="nav_paths">مساراتنا</a></li>
+                        <li><a href="{% url 'OurSections' %}" data-i18n="nav_sections">أقسامنا</a></li>
+                        <li><a href="{% url 'facilities' %}" data-i18n="nav_facilities">مرافقنا</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">الخدمات <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-i18n="nav_services">الخدمات <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#workshops">الدورات</a></li>
-                        <li><a href="{% url 'services' %}">خدماتنا</a></li>
+                        <li><a href="#workshops" data-i18n="nav_workshops">الدورات</a></li>
+                        <li><a href="{% url 'services' %}" data-i18n="nav_our_services">خدماتنا</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url 'media' %}">المركز الإعلامي</a></li>
-                <li><a href="{% url 'success-stories' %}">قصص النجاح</a></li>
+                <li><a href="{% url 'media' %}" data-i18n="nav_media">المركز الإعلامي</a></li>
+                <li><a href="{% url 'success-stories' %}" data-i18n="nav_success">قصص النجاح</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">انضم إلينا <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-i18n="nav_join">انضم إلينا <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'volunteer' %}">التطوع</a></li>
-                        <li><a href="{% url 'internship' %}">التدريب التعاوني</a></li>
-                        <li><a href="#contact">تواصل معنا</a></li>
+                        <li><a href="{% url 'volunteer' %}" data-i18n="nav_volunteer">التطوع</a></li>
+                        <li><a href="{% url 'internship' %}" data-i18n="nav_internship">التدريب التعاوني</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">تواصل معنا</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
         <div class="controls">
             <a href="#" id="languageSwitch" class="btn-control">EN</a>
-            <a href="#" class="btn-control"><i class="fas fa-user-plus"></i> تسجيل</a>
-            <a href="#" class="btn-control"><i class="fas fa-sign-in-alt"></i> دخول</a>
+            <a href="#" class="btn-control"><i class="fas fa-user-plus"></i> <span data-i18n="nav_register">تسجيل</span></a>
+            <a href="#" class="btn-control"><i class="fas fa-sign-in-alt"></i> <span data-i18n="nav_login">دخول</span></a>
         </div>
     </header>
 
@@ -93,15 +93,15 @@
             <canvas class="section-stars" id="about-stars"></canvas>
             <div class="about-fablab-container">
                 <div class="section-header">
-                    <h2>عن فاب لاب الأحساء</h2>
+                    <h2 data-i18n="about_title">عن فاب لاب الأحساء</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="section-content">
                     <p class="typing-text"></p>
                     <div class="services-grid">
-                        <div class="card"><i class="fas fa-lightbulb"></i> الإبداع اللامحدود</div>
-                        <div class="card"><i class="fas fa-book"></i> التعليم المستمر</div>
-                        <div class="card"><i class="fas fa-users"></i> الشراكات العالمية</div>
+                        <div class="card"><i class="fas fa-lightbulb"></i> <span data-i18n="service_1">الإبداع اللامحدود</span></div>
+                        <div class="card"><i class="fas fa-book"></i> <span data-i18n="service_2">التعليم المستمر</span></div>
+                        <div class="card"><i class="fas fa-users"></i> <span data-i18n="service_3">الشراكات العالمية</span></div>
                     </div>
                 </div>
             </div>
@@ -112,23 +112,23 @@
             <canvas class="section-stars" id="vision-stars"></canvas>
             <div class="vision-container">
                 <div class="section-header">
-                    <h2>الرسالة والرؤية</h2>
+                    <h2 data-i18n="vision_title">الرسالة والرؤية</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="vision-boxes">
                     <div class="vision-box">
                         <div class="box-label">
                             <i class="fas fa-lightbulb"></i>
-                            <span>الرسالة</span>
+                            <span data-i18n="vision_mission">الرسالة</span>
                         </div>
-                        <p class="hidden-text">نشر ثقافة الإبداع والاختراع ومساعدة المجتمع في تحويل أفكارهم إلى منتجات عبر أحدث تقنيات التصنيع الرقمي المتواجدة في الفاب لاب</p>
+                        <p class="hidden-text" data-i18n="mission_text">نشر ثقافة الإبداع والاختراع ومساعدة المجتمع في تحويل أفكارهم إلى منتجات عبر أحدث تقنيات التصنيع الرقمي المتواجدة في الفاب لاب</p>
                     </div>
                     <div class="vision-box">
                         <div class="box-label">
                             <i class="fas fa-eye"></i>
-                            <span>الرؤية</span>
+                            <span data-i18n="vision_vision">الرؤية</span>
                         </div>
-                        <p class="hidden-text">أن نكون أفضل مصنع رقمي متميز حول العالم يساهم في تنمية الإبداع والابتكار</p>
+                        <p class="hidden-text" data-i18n="vision_text">أن نكون أفضل مصنع رقمي متميز حول العالم يساهم في تنمية الإبداع والابتكار</p>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
             <canvas class="section-stars" id="workshops-stars"></canvas>
             <div class="workshops-container">
                 <div class="section-header">
-                    <h2>ورش العمل والبرامج</h2>
+                    <h2 data-i18n="workshops_title">ورش العمل والبرامج</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="section-content">
@@ -152,11 +152,11 @@
                                         <img src="{% static 'users/images/t.jpeg' %}" alt="الطباعة ثلاثية الأبعاد">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>التصنيع الرقمي</h3>
-                                        <p>تعلم أساسيات التصنيع الرقمي واستخدام الطابعات ثلاثية الأبعاد</p>
+                                        <h3 data-i18n="workshop_1_title">التصنيع الرقمي</h3>
+                                        <p data-i18n="workshop_1_desc">تعلم أساسيات التصنيع الرقمي واستخدام الطابعات ثلاثية الأبعاد</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 3 أيام تدريبية مكثفة</span>
+                                            <span data-i18n="workshop_1_duration">مدة: 3 أيام تدريبية مكثفة</span>
                                         </div>
                                     </div>
                                 </a>
@@ -167,11 +167,11 @@
                                         <img src="https://placehold.co/300x200/1d1c0a/9C27B0?text=الإلكترونيات" alt="الإلكترونيات">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>الإلكترونيات</h3>
-                                        <p>تطوير المشاريع الإلكترونية باستخدام Arduino وRaspberry Pi</p>
+                                        <h3 data-i18n="workshop_2_title">الإلكترونيات</h3>
+                                        <p data-i18n="workshop_2_desc">تطوير المشاريع الإلكترونية باستخدام Arduino وRaspberry Pi</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 5 أيام تدريبية شاملة</span>
+                                            <span data-i18n="workshop_2_duration">مدة: 5 أيام تدريبية شاملة</span>
                                         </div>
                                     </div>
                                 </a>
@@ -182,11 +182,11 @@
                                         <img src="https://placehold.co/300x200/1d1c0a/9C27B0?text=البرمجة" alt="البرمجة">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>البرمجة</h3>
-                                        <p>تعلم لغات البرمجة المختلفة وتطوير التطبيقات</p>
+                                        <h3 data-i18n="workshop_3_title">البرمجة</h3>
+                                        <p data-i18n="workshop_3_desc">تعلم لغات البرمجة المختلفة وتطوير التطبيقات</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 7 أيام تدريبية عملية</span>
+                                            <span data-i18n="workshop_3_duration">مدة: 7 أيام تدريبية عملية</span>
                                         </div>
                                     </div>
                                 </a>
@@ -197,11 +197,11 @@
                                         <img src="https://placehold.co/300x200/1d1c0a/9C27B0?text=التصميم+الجرافيكي" alt="التصميم الجرافيكي">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>التصميم الجرافيكي</h3>
-                                        <p>إتقان برامج التصميم وإنشاء المحتوى البصري</p>
+                                        <h3 data-i18n="workshop_4_title">التصميم الجرافيكي</h3>
+                                        <p data-i18n="workshop_4_desc">إتقان برامج التصميم وإنشاء المحتوى البصري</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 4 أيام تدريبية مكثفة</span>
+                                            <span data-i18n="workshop_4_duration">مدة: 4 أيام تدريبية مكثفة</span>
                                         </div>
                                     </div>
                                 </a>
@@ -212,11 +212,11 @@
                                         <img src="https://placehold.co/300x200/1d1c0a/9C27B0?text=الذكاء+الاصطناعي" alt="الذكاء الاصطناعي">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>الذكاء الاصطناعي</h3>
-                                        <p>مقدمة في تقنيات الذكاء الاصطناعي وتطبيقاتها</p>
+                                        <h3 data-i18n="workshop_5_title">الذكاء الاصطناعي</h3>
+                                        <p data-i18n="workshop_5_desc">مقدمة في تقنيات الذكاء الاصطناعي وتطبيقاتها</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 6 أيام تدريبية شاملة</span>
+                                            <span data-i18n="workshop_5_duration">مدة: 6 أيام تدريبية شاملة</span>
                                         </div>
                                     </div>
                                 </a>
@@ -227,11 +227,11 @@
                                         <img src="https://placehold.co/300x200/1d1c0a/9C27B0?text=ريادة+الأعمال" alt="ريادة الأعمال">
                                     </div>
                                     <div class="workshop-content">
-                                        <h3>ريادة الأعمال</h3>
-                                        <p>تطوير الأفكار التجارية وبناء المشاريع الناشئة</p>
+                                        <h3 data-i18n="workshop_6_title">ريادة الأعمال</h3>
+                                        <p data-i18n="workshop_6_desc">تطوير الأفكار التجارية وبناء المشاريع الناشئة</p>
                                         <div class="workshop-duration">
                                             <i class="far fa-clock"></i>
-                                            <span>مدة: 5 أيام تدريبية عملية</span>
+                                            <span data-i18n="workshop_6_duration">مدة: 5 أيام تدريبية عملية</span>
                                         </div>
                                     </div>
                                 </a>
@@ -242,6 +242,10 @@
                     <div class="carousel-indicators">
                         <button class="indicator active" data-index="0"></button>
                         <button class="indicator" data-index="1"></button>
+                        <button class="indicator" data-index="2"></button>
+                        <button class="indicator" data-index="3"></button>
+                        <button class="indicator" data-index="4"></button>
+                        <button class="indicator" data-index="5"></button>
                     </div>
                 </div>
             </div>
@@ -252,26 +256,26 @@
             <canvas class="section-stars" id="achievements-stars"></canvas>
             <div class="achievements-container">
                 <div class="section-header">
-                    <h2>إنجازاتنا بالأرقام</h2>
+                    <h2 data-i18n="achievements_title">إنجازاتنا بالأرقام</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="section-content">
-                    <p class="achievement-text">نفخر بما حققناه من إنجازات وما قدمناه لمجتمعنا</p>
+                    <p class="achievement-text" data-i18n="achievements_text">نفخر بما حققناه من إنجازات وما قدمناه لمجتمعنا</p>
                     <div class="achievements-grid">
                         <div class="achievement-card">
                             <div class="achievement-icon"><i class="fas fa-users"></i></div>
                             <span class="counter" data-target="500">0</span>+
-                            <p>المستفيدين</p>
+                            <p data-i18n="achievement_1">المستفيدين</p>
                         </div>
                         <div class="achievement-card">
                             <div class="achievement-icon"><i class="fas fa-project-diagram"></i></div>
                             <span class="counter" data-target="150">0</span>+
-                            <p>المشاريع المنجزة</p>
+                            <p data-i18n="achievement_2">المشاريع المنجزة</p>
                         </div>
                         <div class="achievement-card">
                             <div class="achievement-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                             <span class="counter" data-target="50">0</span>+
-                            <p>ورش العمل</p>
+                            <p data-i18n="achievement_3">ورش العمل</p>
                         </div>
                     </div>
                 </div>
@@ -283,11 +287,11 @@
             <canvas class="section-stars" id="partners-stars"></canvas>
             <div class="partners-container">
                 <div class="section-header">
-                    <h2>شركاؤنا</h2>
+                    <h2 data-i18n="partners_title">شركاؤنا</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="section-content">
-                    <p class="partners-text">نحن فخورون بشراكاتنا مع المؤسسات والأفراد الذين يدعمون رؤيتنا</p>
+                    <p class="partners-text" data-i18n="partners_text">نحن فخورون بشراكاتنا مع المؤسسات والأفراد الذين يدعمون رؤيتنا</p>
                 </div>
                 <div class="partners-grid">
                     <div class="carousel">
@@ -342,15 +346,15 @@
                 </ul>
                 <!-- Programmers Section -->
                 <div class="programmers-section">
-                    <h4>المبرمجون</h4>
+                    <h4 data-i18n="programmers_title">المبرمجون</h4>
                     <div class="programmers-list">
                         <a href="https://wa.me/966551902136" class="programmer-link" target="_blank">
                             <i class="fab fa-whatsapp"></i>
-                            باسم المشموم
+                            <span data-i18n="programmer_1">باسم المشموم</span>
                         </a>
                         <a href="https://wa.me/966559319339" class="programmer-link" target="_blank">
                             <i class="fab fa-whatsapp"></i>
-                            علي العبودي
+                            <span data-i18n="programmer_2">علي العبودي</span>
                         </a>
                     </div>
                 </div>
@@ -358,7 +362,7 @@
 
             <!-- Map Section -->
             <div class="footer-section map-section">
-                <h3>موقعنا على الخريطة</h3>
+                <h3 data-i18n="map_title">موقعنا على الخريطة</h3>
                 <div class="map-embed">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.8507641559995!2d49.56045308498625!3d25.409805583797752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e37972ec8390af5%3A0x4a3f469489c0fcd9!2z2YHYp9ioINmE2KfYqCDYp9mE2KPYrdiz2KfYoQ!5e0!3m2!1sar!2ssa!4v1759741737132!5m2!1sar!2ssa" 
                             allowfullscreen="" loading="lazy" 
@@ -369,51 +373,51 @@
 
             <!-- Contact Information Section -->
             <div class="footer-section contact-section">
-                <h3>معلومات الاتصال</h3>
+                <h3 data-i18n="contact_title">معلومات الاتصال</h3>
                 <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@fablabahsa.org</p>
-                    <p><i class="fas fa-phone"></i> الهاتف: 40004-58-013</p>
-                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</p>
+                    <p><i class="fas fa-envelope"></i> <span data-i18n="contact_email">البريد الإلكتروني: info@fablabahsa.org</span></p>
+                    <p><i class="fas fa-phone"></i> <span data-i18n="contact_phone">الهاتف: 40004-58-013</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_address">العنوان: الأحساء - حي الحزام الذهبي - شارع عين نجم</span></p>
                 </div>
             </div>
 
             <!-- Contact Form Section -->
             <div class="footer-section contact-form-section">
-                <h3>أرسل لنا رسالة</h3>
+                <h3 data-i18n="contact_form_title">أرسل لنا رسالة</h3>
                 <form id="contactForm" class="contact-form" action="{% url 'index' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <input type="text" name="name" id="footer-name" placeholder="اسمك الكامل" required>
+                        <input type="text" name="name" id="footer-name" placeholder="اسمك الكامل" data-i18n-placeholder="form_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="footer-email" placeholder="بريدك الإلكتروني" required>
+                        <input type="email" name="email" id="footer-email" placeholder="بريدك الإلكتروني" data-i18n-placeholder="form_email" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" id="footer-message" placeholder="رسالتك هنا..." rows="2" required></textarea>
+                        <textarea name="message" id="footer-message" placeholder="رسالتك هنا..." rows="2" data-i18n-placeholder="form_message" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    <button type="submit" class="submit-btn" data-i18n="form_submit">إرسال الرسالة</button>
                 </form>
             </div>
         </div>
 
         <!-- Copyright Section -->
         <div class="footer-copyright">
-            <p>© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
+            <p data-i18n="copyright">© 2025 فاب لاب الأحساء - مبادرة مؤسسة عبد المنعم الراشد الإنسانية</p>
         </div>
     </footer>
 
     <!-- Chatbot Widget -->
     <div class="chatbot-container">
         <div class="chatbot-header">
-            <span>دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
+            <span data-i18n="chatbot_title">دردشة فاب لاب الأحساء - مدعومة بالذكاء الاصطناعي</span>
             <button class="chatbot-close">&times;</button>
         </div>
         <div class="chatbot-messages" id="chatbot-messages">
-            <div class="chatbot-message bot">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
+            <div class="chatbot-message bot" data-i18n="chatbot_welcome">مرحبًا , أنا مساعد فاب لاب الأحساء . كيف يمكنني مساعدتك اليوم ؟</div>
         </div>
         <div class="chatbot-input">
-            <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا...">
-            <button id="chatbot-send">إرسال</button>
+            <input type="text" id="chatbot-input" placeholder="اكتب سؤالك هنا..." data-i18n-placeholder="chatbot_placeholder">
+            <button id="chatbot-send" data-i18n="chatbot_send">إرسال</button>
         </div>
     </div>
     <button class="chatbot-toggle"><i class="fas fa-comment"></i></button>
