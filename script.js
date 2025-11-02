@@ -1,14 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Functionality
-    const mobileMenuToggle = document.createElement('button');
-    mobileMenuToggle.className = 'mobile-menu-toggle';
-    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    const mobileMenuClose = document.createElement('button');
-    mobileMenuClose.className = 'mobile-menu-close';
-    mobileMenuClose.innerHTML = '<i class="fas fa-times"></i>';
-    mobileMenuClose.style.display = 'none';
-    
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const mobileMenuOverlay = document.createElement('div');
     mobileMenuOverlay.className = 'mobile-menu-overlay';
     
@@ -16,15 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav');
     
     if (header && nav) {
-        header.appendChild(mobileMenuToggle);
-        nav.appendChild(mobileMenuClose);
         document.body.appendChild(mobileMenuOverlay);
         
         // Toggle mobile menu
         mobileMenuToggle.addEventListener('click', function() {
             nav.classList.add('active');
             mobileMenuOverlay.classList.add('active');
-            mobileMenuClose.style.display = 'block';
             document.body.style.overflow = 'hidden';
         });
         
@@ -32,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function closeMobileMenu() {
             nav.classList.remove('active');
             mobileMenuOverlay.classList.remove('active');
-            mobileMenuClose.style.display = 'none';
             document.body.style.overflow = 'auto';
             
             // Close all dropdowns
@@ -65,6 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+        
+        // Close dropdowns when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
     }
 
     // Star Background Animation for Main Page
@@ -88,14 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function initStars() {
             stars = [];
-            const starCount = Math.min(200, Math.floor((starCanvas.width * starCanvas.height) / 2000));
+            const starCount = Math.min(150, Math.floor((starCanvas.width * starCanvas.height) / 3000));
             
             for (let i = 0; i < starCount; i++) {
                 stars.push({
                     x: Math.random() * starCanvas.width,
                     y: Math.random() * starCanvas.height,
-                    size: Math.random() * 2 + 0.5,
-                    speed: Math.random() * 0.5 + 0.1,
+                    size: Math.random() * 1.5 + 0.5,
+                    speed: Math.random() * 0.3 + 0.1,
                     opacity: Math.random() * 0.8 + 0.2,
                     twinkleSpeed: Math.random() * 0.05 + 0.02,
                     twinkleOffset: Math.random() * Math.PI * 2
@@ -104,13 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function createShootingStar() {
-            if (Math.random() < 0.02 && shootingStars.length < 2) {
+            if (Math.random() < 0.01 && shootingStars.length < 2) {
                 shootingStars.push({
                     x: Math.random() * starCanvas.width,
                     y: 0,
-                    speedX: (Math.random() * 3 + 2) * (Math.random() > 0.5 ? 1 : -1),
-                    speedY: Math.random() * 2 + 2,
-                    size: Math.random() * 2 + 1,
+                    speedX: (Math.random() * 2 + 1) * (Math.random() > 0.5 ? 1 : -1),
+                    speedY: Math.random() * 1.5 + 1,
+                    size: Math.random() * 1.5 + 0.5,
                     opacity: 1,
                     trail: []
                 });
@@ -129,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 star.opacity -= 0.02;
                 
                 star.trail.push({ x: star.x, y: star.y });
-                if (star.trail.length > 10) {
+                if (star.trail.length > 8) {
                     star.trail.shift();
                 }
                 
@@ -195,14 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
         enhancedStarCanvas.style.pointerEvents = 'none';
 
         const enhancedStars = [];
-        const enhancedStarCount = 100;
+        const enhancedStarCount = 80;
 
         class EnhancedStar {
             constructor() {
                 this.x = Math.random() * enhancedStarCanvas.width;
                 this.y = Math.random() * enhancedStarCanvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speed = Math.random() * 0.8 + 0.2;
+                this.size = Math.random() * 2 + 0.5;
+                this.speed = Math.random() * 0.5 + 0.1;
                 this.opacity = Math.random() * 0.7 + 0.3;
                 this.parallax = Math.random() * 0.8 + 0.2;
             }
@@ -224,8 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 enhancedCtx.fill();
                 
                 // Add glow effect for larger stars
-                if (this.size > 2) {
-                    enhancedCtx.shadowBlur = 10;
+                if (this.size > 1.5) {
+                    enhancedCtx.shadowBlur = 8;
                     enhancedCtx.shadowColor = 'white';
                 }
             }
@@ -271,14 +269,14 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.height = section.offsetHeight;
 
         const stars = [];
-        const starCount = 20;
+        const starCount = 15;
 
         class Star {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speed = Math.random() * 0.5 + 0.1;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speed = Math.random() * 0.3 + 0.1;
                 this.opacity = Math.random() * 0.5 + 0.5;
                 this.parallax = Math.random() * 0.5 + 0.1;
             }
@@ -428,19 +426,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const indicators = document.querySelectorAll('.indicator');
     
     if (carousel && prevBtn && nextBtn) {
-        const itemWidth = carousel.querySelector('.workshop-item').offsetWidth + 30;
+        let itemWidth;
+        
+        function updateItemWidth() {
+            if (window.innerWidth <= 480) {
+                itemWidth = carousel.offsetWidth;
+            } else if (window.innerWidth <= 768) {
+                itemWidth = carousel.offsetWidth / 2;
+            } else {
+                itemWidth = carousel.offsetWidth / 3;
+            }
+        }
+        
+        updateItemWidth();
         
         prevBtn.addEventListener('click', () => {
+            updateItemWidth();
             carousel.scrollBy({
-                left: itemWidth * 3,
+                left: itemWidth,
                 behavior: 'smooth'
             });
             updateIndicators();
         });
         
         nextBtn.addEventListener('click', () => {
+            updateItemWidth();
             carousel.scrollBy({
-                left: -itemWidth * 3,
+                left: -itemWidth,
                 behavior: 'smooth'
             });
             updateIndicators();
@@ -449,8 +461,9 @@ document.addEventListener('DOMContentLoaded', function() {
         indicators.forEach(indicator => {
             indicator.addEventListener('click', () => {
                 const index = parseInt(indicator.getAttribute('data-index'));
+                updateItemWidth();
                 carousel.scrollTo({
-                    left: index * carousel.offsetWidth,
+                    left: index * itemWidth,
                     behavior: 'smooth'
                 });
                 updateIndicators();
@@ -461,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function updateIndicators() {
             const scrollPosition = carousel.scrollLeft;
-            const itemWidth = carousel.offsetWidth / 3;
+            updateItemWidth();
             const currentIndex = Math.round(scrollPosition / itemWidth);
             
             indicators.forEach((indicator, index) => {
@@ -506,6 +519,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const walk = (x - startX) * 2;
             carousel.scrollLeft = scrollLeft - walk;
         });
+        
+        window.addEventListener('resize', updateItemWidth);
     }
 
     // Workshop Card Interactions
@@ -537,6 +552,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
             }
         });
     });
@@ -599,369 +619,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', startCounters);
     window.addEventListener('scroll', startCounters);
 
-    // Chat Bot Functionality
-    const chatBot = document.getElementById('chatBot');
-    const chatBox = document.getElementById('chatBox');
-    const closeChat = document.querySelector('.close-chat');
-    const chatInput = document.getElementById('chatInput');
-    const chatBody = document.getElementById('chatBody');
-
-    if (chatBot && chatBox) {
-        chatBot.addEventListener('click', () => {
-            chatBox.classList.toggle('active');
-            animateButton(chatBot);
-        });
-
-        if (closeChat) {
-            closeChat.addEventListener('click', () => {
-                chatBox.classList.remove('active');
-            });
-        }
-
-        function sendChatMessage() {
-            if (chatInput && chatBody && chatInput.value.trim() !== '') {
-                const message = chatInput.value;
-                const messageElement = document.createElement('div');
-                messageElement.className = 'chat-message user';
-                messageElement.style.padding = '0.5rem';
-                messageElement.style.margin = '0.5rem 0';
-                messageElement.style.background = 'rgba(156, 39, 176, 0.3)';
-                messageElement.style.borderRadius = '10px';
-                messageElement.style.textAlign = document.documentElement.dir === 'rtl' ? 'right' : 'left';
-                messageElement.textContent = message;
-                chatBody.appendChild(messageElement);
-
-                // Simulate bot response
-                setTimeout(() => {
-                    const botMessage = document.createElement('div');
-                    botMessage.className = 'chat-message bot';
-                    botMessage.style.padding = '0.5rem';
-                    botMessage.style.margin = '0.5rem 0';
-                    botMessage.style.background = 'rgba(3, 169, 244, 0.3)';
-                    botMessage.style.borderRadius = '10px';
-                    botMessage.style.textAlign = document.documentElement.dir === 'rtl' ? 'left' : 'right';
-                    botMessage.textContent = getBotResponse(message);
-                    chatBody.appendChild(botMessage);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }, 500);
-
-                chatInput.value = '';
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }
-        }
-
-        function getBotResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            if (lowerMessage.includes('مرحبا') || lowerMessage.includes('هلا')) {
-                return 'مرحبًا! كيف يمكنني مساعدتك اليوم؟';
-            } else if (lowerMessage.includes('فاب لاب') || lowerMessage.includes('عن')) {
-                return 'فاب لاب الأحساء هو مركز للتصنيع الرقمي يهدف إلى تمكين المجتمع من خلال الإبداع والابتكار. هل تريد معرفة المزيد عن خدماتنا؟';
-            } else if (lowerMessage.includes('خدمات') || lowerMessage.includes('ورش')) {
-                return 'نقدم ورش عمل في التصنيع الرقمي، الإلكترونيات، البرمجة، التصميم الجرافيكي، الذكاء الاصطناعي، وريادة الأعمال. هل تود التسجيل في إحداها؟';
-            } else if (lowerMessage.includes('تسجيل') || lowerMessage.includes('انضم')) {
-                return 'يمكنك التسجيل في ورش العمل من خلال صفحة "انضم إلينا" على موقعنا. هل تريد مساعدة في عملية التسجيل؟';
-            } else {
-                return 'عذرًا، لم أفهم سؤالك. يرجى توضيح المزيد أو طرح سؤال آخر!';
-            }
-        }
-
-        if (chatInput) {
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendChatMessage();
-                }
-            });
-        }
-    }
-
-    // Notification System
-    const notificationBell = document.getElementById('notificationBell');
-    const notificationPopover = document.getElementById('notificationPopover');
-    const notificationMessages = document.getElementById('notificationMessages');
-    const markNotificationsRead = document.getElementById('markNotificationsRead');
-    const notificationCount = document.getElementById('notificationCount');
-    const popoverClose = document.querySelector('.popover-close');
-
-    let notifications = [
-        { id: 1, message: 'تم إضافة ورشة عمل جديدة حول الذكاء الاصطناعي!', read: false },
-        { id: 2, message: 'لديك دعوة لحضور حدث فاب لاب القادم.', read: false }
-    ];
-
-    function updateNotifications() {
-        if (notificationMessages && notificationCount) {
-            notificationMessages.innerHTML = '';
-            const unreadCount = notifications.filter(n => !n.read).length;
-            notificationCount.textContent = unreadCount;
-            notificationCount.style.display = unreadCount > 0 ? 'block' : 'none';
-
-            notifications.forEach(notification => {
-                const div = document.createElement('div');
-                div.className = `notification-message ${notification.read ? '' : 'unread'}`;
-                div.textContent = notification.message;
-                notificationMessages.appendChild(div);
-            });
-        }
-    }
-
-    if (notificationBell && notificationPopover) {
-        notificationBell.addEventListener('click', (e) => {
-            e.preventDefault();
-            notificationPopover.style.display = notificationPopover.style.display === 'none' ? 'block' : 'none';
-            animateButton(notificationBell);
-        });
-
-        if (markNotificationsRead) {
-            markNotificationsRead.addEventListener('click', () => {
-                notifications.forEach(n => n.read = true);
-                updateNotifications();
-                notificationPopover.style.display = 'none';
-            });
-        }
-
-        if (popoverClose) {
-            popoverClose.addEventListener('click', () => {
-                notificationPopover.style.display = 'none';
-            });
-        }
-
-        updateNotifications();
-    }
-
-    // Registration and Login Modals
-    const registerButton = document.getElementById('registerButton');
-    const loginButton = document.getElementById('loginButton');
-    const logoutButton = document.getElementById('logoutButton');
-
-    function showSuccessModal() {
-        const successModal = document.createElement('div');
-        successModal.className = 'success-modal';
-        successModal.innerHTML = `
-            <div class="success-card">
-                <div class="card-content">
-                    <div class="success-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <h2 class="success-title">تم بنجاح!</h2>
-                    <p class="success-message">تمت العملية بنجاح، شكرًا لك!</p>
-                    <button class="close-btn">إغلاق</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(successModal);
-        document.body.style.overflow = 'hidden';
-
-        const closeBtn = successModal.querySelector('.close-btn');
-        closeBtn.addEventListener('click', () => {
-            successModal.remove();
-            document.body.style.overflow = 'auto';
-        });
-
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('success-modal')) {
-                successModal.remove();
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                successModal.remove();
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        setTimeout(() => {
-            successModal.remove();
-            document.body.style.overflow = 'auto';
-        }, 3000);
-    }
-
-    if (registerButton) {
-        registerButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            showRegisterModal();
-            animateButton(registerButton);
-        });
-
-        function showRegisterModal() {
-            const registerModal = document.createElement('div');
-            registerModal.className = 'modal';
-            registerModal.id = 'registerModal';
-            registerModal.innerHTML = `
-                <div class="modal-content">
-                    <button class="close-btn">&times;</button>
-                    <h2>التسجيل</h2>
-                    <div class="form-group">
-                        <label for="regUsername">اسم المستخدم</label>
-                        <input type="text" id="regUsername" placeholder="أدخل اسم المستخدم" pattern="[A-Za-z0-9]+" title="يجب أن يحتوي اسم المستخدم على أحرف إنجليزية وأرقام فقط" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="regEmail">البريد الإلكتروني</label>
-                        <input type="email" id="regEmail" placeholder="أدخل بريدك الإلكتروني" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$" title="يجب أن يكون البريد الإلكتروني صالحًا" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="regPassword">كلمة المرور</label>
-                        <input type="password" id="regPassword" placeholder="أدخل كلمة المرور" pattern="^(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$" title="كلمة المرور يجب أن تكون 8 خانات على الأقل وتحتوي على رمز واحد على الأقل" required>
-                    </div>
-                    <div id="regError" style="color: #FFC107; font-size: 0.9rem; margin: 0.5rem 0; display: none;"></div>
-                    <button class="submit-btn" disabled>تسجيل</button>
-                </div>
-            `;
-            document.body.appendChild(registerModal);
-
-            const usernameInput = document.getElementById('regUsername');
-            const emailInput = document.getElementById('regEmail');
-            const passwordInput = document.getElementById('regPassword');
-            const submitButton = registerModal.querySelector('.submit-btn');
-            const errorDiv = document.getElementById('regError');
-            const closeBtn = registerModal.querySelector('.close-btn');
-
-            function checkFormValidity() {
-                const usernameValid = /^[A-Za-z0-9]+$/.test(usernameInput.value.trim());
-                const emailValid = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(emailInput.value.trim());
-                const passwordValid = /^(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/.test(passwordInput.value.trim());
-
-                if (!usernameValid && usernameInput.value.trim()) {
-                    errorDiv.textContent = 'اسم المستخدم يجب أن يحتوي على أحرف إنجليزية وأرقام فقط';
-                    errorDiv.style.display = 'block';
-                } else if (!emailValid && emailInput.value.trim()) {
-                    errorDiv.textContent = 'البريد الإلكتروني يجب أن يكون صالحًا';
-                    errorDiv.style.display = 'block';
-                } else if (!passwordValid && passwordInput.value.trim()) {
-                    errorDiv.textContent = 'كلمة المرور يجب أن تكون 8 خانات على الأقل وتحتوي على رمز واحد على الأقل';
-                    errorDiv.style.display = 'block';
-                } else {
-                    errorDiv.style.display = 'none';
-                }
-
-                const isValid = usernameValid && emailValid && passwordValid &&
-                                usernameInput.value.trim() !== '' &&
-                                emailInput.value.trim() !== '' &&
-                                passwordInput.value.trim() !== '';
-                
-                submitButton.disabled = !isValid;
-                submitButton.style.opacity = isValid ? 1 : 0.5;
-                submitButton.style.cursor = isValid ? 'pointer' : 'not-allowed';
-            }
-
-            usernameInput.addEventListener('input', checkFormValidity);
-            emailInput.addEventListener('input', checkFormValidity);
-            passwordInput.addEventListener('input', checkFormValidity);
-
-            submitButton.addEventListener('click', () => {
-                if (!submitButton.disabled) {
-                    console.log('Registration:', {
-                        username: usernameInput.value,
-                        email: emailInput.value,
-                        password: passwordInput.value
-                    });
-                    registerModal.remove();
-                    showSuccessModal();
-                }
-            });
-
-            closeBtn.addEventListener('click', () => {
-                registerModal.remove();
-            });
-
-            registerModal.style.display = 'flex';
-        }
-    }
-
-    if (loginButton) {
-        loginButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            showLoginModal();
-            animateButton(loginButton);
-        });
-
-        function showLoginModal() {
-            const loginModal = document.createElement('div');
-            loginModal.className = 'modal';
-            loginModal.id = 'loginModal';
-            loginModal.innerHTML = `
-                <div class="modal-content">
-                    <button class="close-btn">&times;</button>
-                    <h2>تسجيل الدخول</h2>
-                    <div class="form-group">
-                        <label for="loginUsername">اسم المستخدم</label>
-                        <input type="text" id="loginUsername" placeholder="أدخل اسم المستخدم" pattern="[A-Za-z0-9]+" title="يجب أن يحتوي اسم المستخدم على أحرف إنجليزية وأرقام فقط" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">كلمة المرور</label>
-                        <input type="password" id="loginPassword" placeholder="أدخل كلمة المرور" pattern="^(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$" title="كلمة المرور يجب أن تكون 8 خانات على الأقل وتحتوي على رمز واحد على الأقل" required>
-                    </div>
-                    <div id="loginError" style="color: #FFC107; font-size: 0.9rem; margin: 0.5rem 0; display: none;"></div>
-                    <button class="submit-btn" disabled>دخول</button>
-                </div>
-            `;
-            document.body.appendChild(loginModal);
-
-            const usernameInput = document.getElementById('loginUsername');
-            const passwordInput = document.getElementById('loginPassword');
-            const submitButton = loginModal.querySelector('.submit-btn');
-            const errorDiv = document.getElementById('loginError');
-            const closeBtn = loginModal.querySelector('.close-btn');
-
-            function checkFormValidity() {
-                const usernameValid = /^[A-Za-z0-9]+$/.test(usernameInput.value.trim());
-                const passwordValid = /^(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/.test(passwordInput.value.trim());
-
-                if (!usernameValid && usernameInput.value.trim()) {
-                    errorDiv.textContent = 'اسم المستخدم يجب أن يحتوي على أحرف إنجليزية وأرقام فقط';
-                    errorDiv.style.display = 'block';
-                } else if (!passwordValid && passwordInput.value.trim()) {
-                    errorDiv.textContent = 'كلمة المرور يجب أن تكون 8 خانات على الأقل وتحتوي على رمز واحد على الأقل';
-                    errorDiv.style.display = 'block';
-                } else {
-                    errorDiv.style.display = 'none';
-                }
-
-                const isValid = usernameValid && passwordValid &&
-                                usernameInput.value.trim() !== '' &&
-                                passwordInput.value.trim() !== '';
-                
-                submitButton.disabled = !isValid;
-                submitButton.style.opacity = isValid ? 1 : 0.5;
-                submitButton.style.cursor = isValid ? 'pointer' : 'not-allowed';
-            }
-
-            usernameInput.addEventListener('input', checkFormValidity);
-            passwordInput.addEventListener('input', checkFormValidity);
-
-            submitButton.addEventListener('click', () => {
-                if (!submitButton.disabled) {
-                    console.log('Login:', {
-                        username: usernameInput.value,
-                        password: passwordInput.value
-                    });
-                    loginModal.remove();
-                    showSuccessModal();
-                    if (loginButton) {
-                        loginButton.textContent = 'مرحبًا';
-                    }
-                }
-            });
-
-            closeBtn.addEventListener('click', () => {
-                loginModal.remove();
-            });
-
-            loginModal.style.display = 'flex';
-        }
-    }
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('User logged out');
-            window.location.reload();
-        });
-    }
-
-    // Chatbot Functionality with Hugging Face
+    // Chatbot Functionality
     let conversationHistory = [];
 
     const chatbotToggle = document.querySelector('.chatbot-toggle');
@@ -1079,6 +737,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        // Close mobile menu on resize to larger screens
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
 
     console.log('Fab Lab website initialized successfully');
 });
